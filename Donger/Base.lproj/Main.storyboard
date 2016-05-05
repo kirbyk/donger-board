@@ -31,6 +31,9 @@
                             <constraint firstItem="dlJ-ds-zwn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tVh-Lt-yHb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="dlJ-ds-zwn" id="QSE-Yq-kcB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
