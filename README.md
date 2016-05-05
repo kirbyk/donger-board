@@ -1,7 +1,7 @@
 donger-board
 ============
 
-An iOS keyboard for Dongers.
+An iOS keyboard for [Dongers](http://dongerlist.com/).
 
 > e.g., ༼つ ◕_◕ ༽つ
 
