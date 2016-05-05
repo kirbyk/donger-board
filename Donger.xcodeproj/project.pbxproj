@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3FBD1B1CDBF936007F1F7B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */; };
+		4E3FBD1F1CDBF936007F1F7B /* DongerBoard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4E3FBD181CDBF936007F1F7B /* DongerBoard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4EF3F52F1CDBEB70006C6E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F52E1CDBEB70006C6E2B /* AppDelegate.swift */; };
 		4EF3F5311CDBEB70006C6E2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F5301CDBEB70006C6E2B /* ViewController.swift */; };
 		4EF3F5341CDBEB70006C6E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3F5321CDBEB70006C6E2B /* Main.storyboard */; };
@@ -17,6 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4E3FBD1D1CDBF936007F1F7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EF3F5231CDBEB70006C6E2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E3FBD171CDBF936007F1F7B;
+			remoteInfo = DongerBoard;
+		};
 		4EF3F5401CDBEB70006C6E2B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EF3F5231CDBEB70006C6E2B /* Project object */;
@@ -33,7 +42,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4E3FBD231CDBF936007F1F7B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4E3FBD1F1CDBF936007F1F7B /* DongerBoard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4E3FBD181CDBF936007F1F7B /* DongerBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DongerBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		4E3FBD1C1CDBF936007F1F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EF3F52B1CDBEB70006C6E2B /* Donger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF3F52E1CDBEB70006C6E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF3F5301CDBEB70006C6E2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +76,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4E3FBD151CDBF936007F1F7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4EF3F5281CDBEB70006C6E2B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,12 +107,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E3FBD191CDBF936007F1F7B /* DongerBoard */ = {
+			isa = PBXGroup;
+			children = (
+				4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */,
+				4E3FBD1C1CDBF936007F1F7B /* Info.plist */,
+			);
+			path = DongerBoard;
+			sourceTree = "<group>";
+		};
 		4EF3F5221CDBEB70006C6E2B = {
 			isa = PBXGroup;
 			children = (
 				4EF3F52D1CDBEB70006C6E2B /* Donger */,
 				4EF3F5421CDBEB70006C6E2B /* DongerTests */,
 				4EF3F54D1CDBEB70006C6E2B /* DongerUITests */,
+				4E3FBD191CDBF936007F1F7B /* DongerBoard */,
 				4EF3F52C1CDBEB70006C6E2B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +133,7 @@
 				4EF3F52B1CDBEB70006C6E2B /* Donger.app */,
 				4EF3F53F1CDBEB70006C6E2B /* DongerTests.xctest */,
 				4EF3F54A1CDBEB70006C6E2B /* DongerUITests.xctest */,
+				4E3FBD181CDBF936007F1F7B /* DongerBoard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +172,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4E3FBD171CDBF936007F1F7B /* DongerBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E3FBD221CDBF936007F1F7B /* Build configuration list for PBXNativeTarget "DongerBoard" */;
+			buildPhases = (
+				4E3FBD141CDBF936007F1F7B /* Sources */,
+				4E3FBD151CDBF936007F1F7B /* Frameworks */,
+				4E3FBD161CDBF936007F1F7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DongerBoard;
+			productName = DongerBoard;
+			productReference = 4E3FBD181CDBF936007F1F7B /* DongerBoard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		4EF3F52A1CDBEB70006C6E2B /* Donger */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EF3F5531CDBEB70006C6E2B /* Build configuration list for PBXNativeTarget "Donger" */;
@@ -135,10 +196,12 @@
 				4EF3F5271CDBEB70006C6E2B /* Sources */,
 				4EF3F5281CDBEB70006C6E2B /* Frameworks */,
 				4EF3F5291CDBEB70006C6E2B /* Resources */,
+				4E3FBD231CDBF936007F1F7B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4E3FBD1E1CDBF936007F1F7B /* PBXTargetDependency */,
 			);
 			name = Donger;
 			productName = Donger;
@@ -191,6 +254,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Kirby Kohlmorgen";
 				TargetAttributes = {
+					4E3FBD171CDBF936007F1F7B = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					4EF3F52A1CDBEB70006C6E2B = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -220,11 +286,19 @@
 				4EF3F52A1CDBEB70006C6E2B /* Donger */,
 				4EF3F53E1CDBEB70006C6E2B /* DongerTests */,
 				4EF3F5491CDBEB70006C6E2B /* DongerUITests */,
+				4E3FBD171CDBF936007F1F7B /* DongerBoard */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4E3FBD161CDBF936007F1F7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4EF3F5291CDBEB70006C6E2B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +326,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4E3FBD141CDBF936007F1F7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E3FBD1B1CDBF936007F1F7B /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4EF3F5271CDBEB70006C6E2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -280,6 +362,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4E3FBD1E1CDBF936007F1F7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E3FBD171CDBF936007F1F7B /* DongerBoard */;
+			targetProxy = 4E3FBD1D1CDBF936007F1F7B /* PBXContainerItemProxy */;
+		};
 		4EF3F5411CDBEB70006C6E2B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4EF3F52A1CDBEB70006C6E2B /* Donger */;
@@ -312,6 +399,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4E3FBD201CDBF936007F1F7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DongerBoard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger.DongerBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4E3FBD211CDBF936007F1F7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DongerBoard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger.DongerBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		4EF3F5511CDBEB70006C6E2B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -401,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Donger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger;
@@ -412,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Donger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger;
@@ -468,6 +579,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4E3FBD221CDBF936007F1F7B /* Build configuration list for PBXNativeTarget "DongerBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E3FBD201CDBF936007F1F7B /* Debug */,
+				4E3FBD211CDBF936007F1F7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4EF3F5261CDBEB70006C6E2B /* Build configuration list for PBXProject "Donger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -484,6 +603,7 @@
 				4EF3F5551CDBEB70006C6E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EF3F5561CDBEB70006C6E2B /* Build configuration list for PBXNativeTarget "DongerTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +612,7 @@
 				4EF3F5581CDBEB70006C6E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EF3F5591CDBEB70006C6E2B /* Build configuration list for PBXNativeTarget "DongerUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +621,7 @@
 				4EF3F55B1CDBEB70006C6E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
