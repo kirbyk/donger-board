@@ -35,10 +35,10 @@
 			<key>RequestsOpenAccess</key>
 			<false/>
 		</dict>
+		<key>NSExtensionMainStoryboard</key>
+		<string>Keyboard</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.keyboard-service</string>
-		<key>NSExtensionPrincipalClass</key>
-		<string>$(PRODUCT_MODULE_NAME).KeyboardViewController</string>
 	</dict>
 </dict>
 </plist>

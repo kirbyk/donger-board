@@ -19,25 +19,25 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addButtons()
+        //self.addButtons()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    override func textDidChange(textInput: UITextInput?) {
-        var textColor: UIColor
-        let proxy = self.textDocumentProxy
-        
-        if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
-            textColor = UIColor.whiteColor()
-        } else {
-            textColor = UIColor.blackColor()
-        }
-        
-        self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
-    }
+//    override func textDidChange(textInput: UITextInput?) {
+//        var textColor: UIColor
+//        let proxy = self.textDocumentProxy
+//        
+//        if proxy.keyboardAppearance == UIKeyboardAppearance.Dark {
+//            textColor = UIColor.whiteColor()
+//        } else {
+//            textColor = UIColor.blackColor()
+//        }
+//        
+//        self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
+//    }
     
     func addButtons() {
         self.addNextKeyboardButton()

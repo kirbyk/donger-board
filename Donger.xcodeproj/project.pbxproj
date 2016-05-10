@@ -16,6 +16,7 @@
 		4EF3F5391CDBEB70006C6E2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3F5371CDBEB70006C6E2B /* LaunchScreen.storyboard */; };
 		4EF3F5441CDBEB70006C6E2B /* DongerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F5431CDBEB70006C6E2B /* DongerTests.swift */; };
 		4EF3F54F1CDBEB70006C6E2B /* DongerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F54E1CDBEB70006C6E2B /* DongerUITests.swift */; };
+		4EFD83FB1CE23E6000258C0E /* Keyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		4EF3F54A1CDBEB70006C6E2B /* DongerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DongerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF3F54E1CDBEB70006C6E2B /* DongerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DongerUITests.swift; sourceTree = "<group>"; };
 		4EF3F5501CDBEB70006C6E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Keyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */,
 				4E3FBD1C1CDBF936007F1F7B /* Info.plist */,
+				4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */,
 			);
 			path = DongerBoard;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EFD83FB1CE23E6000258C0E /* Keyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +590,7 @@
 				4E3FBD211CDBF936007F1F7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EF3F5261CDBEB70006C6E2B /* Build configuration list for PBXProject "Donger" */ = {
 			isa = XCConfigurationList;
