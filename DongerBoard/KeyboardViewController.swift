@@ -135,10 +135,11 @@ class KeyboardViewController: UIInputViewController {
 
     func addButtons() {
         self.addNextKeyboardButton()
+        self.addDeleteButton()
     }
 
     func addNextKeyboardButton() {
-        self.nextKeyboardButton = UIButton(frame: CGRect(x: 0, y: self.scrollView.bounds.height, width: self.scrollView.bounds.width, height: 40))
+        self.nextKeyboardButton = UIButton(frame: CGRect(x: 0, y: self.scrollView.bounds.height, width: 100, height: 40))
         
         self.nextKeyboardButton.setTitle("ABC", forState: .Normal)
         self.nextKeyboardButton.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
@@ -153,6 +154,13 @@ class KeyboardViewController: UIInputViewController {
         // pin to the botton left corner
         self.nextKeyboardButton.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor, constant: 20).active = true
         self.nextKeyboardButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+    }
+    
+    func addDeleteButton() {
+        let deleteButton = UIImage(named: "delete.png")
+        let imageView = UIImageView(image: deleteButton!)
+        imageView.frame = CGRect(x: self.scrollView.bounds.width - 30 - 20, y: self.scrollView.bounds.height + 5, width: 30, height: 20)
+        self.view.addSubview(imageView)
     }
     
     func didTapDongerButton() {
