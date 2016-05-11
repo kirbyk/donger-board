@@ -10,6 +10,7 @@
 		4E3FBD1B1CDBF936007F1F7B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */; };
 		4E3FBD1F1CDBF936007F1F7B /* DongerBoard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4E3FBD181CDBF936007F1F7B /* DongerBoard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4EDA050B1CE283AD00BCE88E /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA050A1CE283AD00BCE88E /* delete.png */; };
+		4EDA050F1CE28ABE00BCE88E /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */; };
 		4EF3F52F1CDBEB70006C6E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F52E1CDBEB70006C6E2B /* AppDelegate.swift */; };
 		4EF3F5311CDBEB70006C6E2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F5301CDBEB70006C6E2B /* ViewController.swift */; };
 		4EF3F5341CDBEB70006C6E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3F5321CDBEB70006C6E2B /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		4E3FBD1C1CDBF936007F1F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EDA050A1CE283AD00BCE88E /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		4EF3F52B1CDBEB70006C6E2B /* Donger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Donger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF3F52E1CDBEB70006C6E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF3F5301CDBEB70006C6E2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,9 +124,18 @@
 			path = DongerBoard;
 			sourceTree = "<group>";
 		};
+		4EDA050D1CE28AAC00BCE88E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		4EF3F5221CDBEB70006C6E2B = {
 			isa = PBXGroup;
 			children = (
+				4EDA050D1CE28AAC00BCE88E /* Resources */,
 				4EF3F52D1CDBEB70006C6E2B /* Donger */,
 				4EF3F5421CDBEB70006C6E2B /* DongerTests */,
 				4EF3F54D1CDBEB70006C6E2B /* DongerUITests */,
@@ -304,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDA050F1CE28ABE00BCE88E /* fontawesome-webfont.ttf in Resources */,
 				4EDA050B1CE283AD00BCE88E /* delete.png in Resources */,
 				4EFD83FB1CE23E6000258C0E /* Keyboard.storyboard in Resources */,
 			);

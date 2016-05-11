@@ -11,6 +11,13 @@ import UIKit
 class KeyboardViewController: UIInputViewController {
 
     var nextKeyboardButton: UIButton!
+    var recentButton: UIButton!
+    var favoriteButton: UIButton!
+    var allButton: UIButton!
+    var trendingButton: UIButton!
+    var randomButton: UIButton!
+    var tbdButton: UIButton!
+    
     var dongerButton: UIButton!
     
     var scrollView: UIScrollView!
@@ -72,6 +79,7 @@ class KeyboardViewController: UIInputViewController {
     ]
     
     let greyColor = UIColor(red:0.35, green:0.34, blue:0.35, alpha:1.00)
+    let categoryButtonSpacing = CGFloat(10)
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -135,11 +143,12 @@ class KeyboardViewController: UIInputViewController {
 
     func addButtons() {
         self.addNextKeyboardButton()
+        self.addCategoryButtons()
         self.addDeleteButton()
     }
 
     func addNextKeyboardButton() {
-        self.nextKeyboardButton = UIButton(frame: CGRect(x: 0, y: self.scrollView.bounds.height, width: 100, height: 40))
+        self.nextKeyboardButton = UIButton()
         
         self.nextKeyboardButton.setTitle("ABC", forState: .Normal)
         self.nextKeyboardButton.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
@@ -150,16 +159,116 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.addTarget(self, action: #selector(UIInputViewController.advanceToNextInputMode), forControlEvents: .TouchUpInside)
         
         self.view.addSubview(self.nextKeyboardButton)
-        
-        // pin to the botton left corner
+
         self.nextKeyboardButton.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor, constant: 20).active = true
-        self.nextKeyboardButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+        self.nextKeyboardButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -5).active = true
+    }
+    
+    func addCategoryButtons() {
+        self.addRecentButton()
+        self.addFavoriteButton()
+        self.addAllButton()
+        self.addTrendingButton()
+        self.addRandomButton()
+        self.addTBDButton()
+    }
+    
+    func addRecentButton() {
+        self.recentButton = UIButton()
+        
+        self.recentButton.setTitle("", forState: .Normal)
+        self.recentButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.recentButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.recentButton.sizeToFit()
+        self.recentButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.recentButton)
+        
+        self.recentButton.leftAnchor.constraintEqualToAnchor(self.nextKeyboardButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.recentButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+    }
+    
+    func addFavoriteButton() {
+        self.favoriteButton = UIButton()
+        
+        self.favoriteButton.setTitle("", forState: .Normal)
+        self.favoriteButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.favoriteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.favoriteButton.sizeToFit()
+        self.favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.favoriteButton)
+        
+        self.favoriteButton.leftAnchor.constraintEqualToAnchor(self.recentButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.favoriteButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+    }
+    
+    func addAllButton() {
+        self.allButton = UIButton()
+        
+        self.allButton.setTitle("", forState: .Normal)
+        self.allButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.allButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.allButton.sizeToFit()
+        self.allButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.allButton)
+    
+        self.allButton.leftAnchor.constraintEqualToAnchor(self.favoriteButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.allButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+    }
+    
+    func addTrendingButton() {
+        self.trendingButton = UIButton()
+        
+        self.trendingButton.setTitle("", forState: .Normal)
+        self.trendingButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.trendingButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.trendingButton.sizeToFit()
+        self.trendingButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.trendingButton)
+        
+        self.trendingButton.leftAnchor.constraintEqualToAnchor(self.allButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.trendingButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+    }
+    
+    func addRandomButton() {
+        self.randomButton = UIButton()
+        
+        self.randomButton.setTitle("", forState: .Normal)
+        self.randomButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.randomButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.randomButton.sizeToFit()
+        self.randomButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.randomButton)
+        
+        self.randomButton.leftAnchor.constraintEqualToAnchor(self.trendingButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.randomButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+    }
+    
+    func addTBDButton() {
+        self.tbdButton = UIButton()
+        
+        self.tbdButton.setTitle("", forState: .Normal)
+        self.tbdButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.tbdButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.tbdButton.sizeToFit()
+        self.tbdButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.tbdButton)
+        
+        self.tbdButton.leftAnchor.constraintEqualToAnchor(self.randomButton.rightAnchor, constant: 15).active = true
+        self.tbdButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
     }
     
     func addDeleteButton() {
         let deleteButton = UIImage(named: "delete.png")
+        
         let imageView = UIImageView(image: deleteButton!)
-        imageView.frame = CGRect(x: self.scrollView.bounds.width - 30 - 20, y: self.scrollView.bounds.height + 5, width: 30, height: 20)
+        imageView.frame = CGRect(x: self.scrollView.bounds.width - 30 - 20, y: self.scrollView.bounds.height + 8, width: 27, height: 18)
+        
         self.view.addSubview(imageView)
     }
     
