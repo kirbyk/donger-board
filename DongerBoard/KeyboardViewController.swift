@@ -108,6 +108,7 @@ class KeyboardViewController: UIInputViewController {
         let buttonHeight = self.scrollView.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
         
         self.scrollView.contentSize.width = buttonSpacing + CGFloat(categories.count / numRows) * (buttonWidth + buttonSpacing)
+        self.scrollView.contentSize.height = self.view.frame.height
         
         self.containerView = UIView()
         
