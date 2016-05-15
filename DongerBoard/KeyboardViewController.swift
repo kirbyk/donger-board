@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Donger
 
 class KeyboardViewController: UIInputViewController {
 
