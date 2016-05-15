@@ -97,15 +97,16 @@ def checkPage(url):
 
 
 # Once we have the HTML element we want, inspect it to get to the Dongers!!!
-def scrapeDonger():
-    pass
+def scrapeDonger(url):
+    browser = Browser("chrome")
+    browser.visit(url)
+
+    elems = browser.find_by_css(".donger")
+    print(len(elems))
+    for elem in elems:
+        print(elem.text)
 
 
 if __name__ == "__main__":
-    getDongers()
-    '''
-    if checkPage("http://www.dongerlist.com/category/why/page/4/"):
-        print("success")
-    else:
-        print("404'd")
-    '''
+    # getDongers()
+    scrapeDonger("http://dongerlist.com/category/ameno")
