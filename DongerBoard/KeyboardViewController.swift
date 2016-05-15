@@ -21,6 +21,9 @@ class KeyboardViewController: UIInputViewController {
     var dongerButton: UIButton!
     
     var scrollView: UIScrollView!
+    
+    var dongerView: UIScrollView!
+    
     var containerView = UIView()
 
     let categories = [
@@ -112,6 +115,8 @@ class KeyboardViewController: UIInputViewController {
         
         self.containerView = UIView()
         
+        print("inb4")
+        
         for (i, category) in categories.enumerate() {
             let button = UIButton(type: .System)
             
@@ -124,10 +129,10 @@ class KeyboardViewController: UIInputViewController {
             button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             button.addTarget(self, action: #selector(self.didTapDongerButton), forControlEvents: UIControlEvents.TouchUpInside)
             
-            containerView.addSubview(button)
+            self.containerView.addSubview(button)
         }
         
-        scrollView.addSubview(containerView)
+        self.scrollView.addSubview(containerView)
 
     }
     
@@ -276,7 +281,18 @@ class KeyboardViewController: UIInputViewController {
     func didTapDongerButton() {
         print("didTapDongerButton")
         
+        let frame = CGRectMake(0, 0, containerView.bounds.width, containerView.bounds.height - 40)
+
+        self.dongerView = UIScrollView(frame: frame)
+        self.dongerView.backgroundColor = UIColor.blueColor()
+        dongerView.contentSize.height = self.view.frame.height
+        dongerView.contentSize.width = self.view.frame.width
+        
+        self.containerView.addSubview(dongerView)
+        
+        /*
         let proxy = self.textDocumentProxy
         proxy.insertText("༼つ ◕_◕ ༽つ")
+        */
     }
 }
