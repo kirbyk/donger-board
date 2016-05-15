@@ -82,6 +82,8 @@ class KeyboardViewController: UIInputViewController {
         "WHY"
     ]
     
+    let donger = Donger()
+    
     let greyColor = UIColor(red:0.35, green:0.34, blue:0.35, alpha:1.00)
     let categoryButtonSpacing = CGFloat(10)
     
@@ -279,8 +281,11 @@ class KeyboardViewController: UIInputViewController {
         self.view.addSubview(imageView)
     }
     
-    func didTapDongerButton() {
+    func didTapDongerButton(sender:UIButton) {
         print("didTapDongerButton")
+        let text = sender.currentTitle!
+        let keyLabels = donger.getDongers(text)
+        print(keyLabels)
         
         let frame = CGRectMake(0, 0, containerView.bounds.width, containerView.bounds.height - 40)
 

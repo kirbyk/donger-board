@@ -20,7 +20,7 @@
 		4EF3F54F1CDBEB70006C6E2B /* DongerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F54E1CDBEB70006C6E2B /* DongerUITests.swift */; };
 		4EFD83FB1CE23E6000258C0E /* Keyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */; };
 		9CAFD72A1CE8FAAB00F39869 /* Donger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAFD7291CE8FAAB00F39869 /* Donger.swift */; };
-		9CAFD72E1CE905DF00F39869 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD72D1CE905DF00F39869 /* data */; };
+		9CAFD7301CE9412F00F39869 /* dongers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD72F1CE9412F00F39869 /* dongers.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +82,7 @@
 		4EF3F5501CDBEB70006C6E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Keyboard.storyboard; sourceTree = "<group>"; };
 		9CAFD7291CE8FAAB00F39869 /* Donger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Donger.swift; sourceTree = "<group>"; };
-		9CAFD72D1CE905DF00F39869 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		9CAFD72F1CE9412F00F39869 /* dongers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dongers.json; path = data/dongers.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +120,7 @@
 		4E3FBD191CDBF936007F1F7B /* DongerBoard */ = {
 			isa = PBXGroup;
 			children = (
+				9CAFD72F1CE9412F00F39869 /* dongers.json */,
 				4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */,
 				4E3FBD1C1CDBF936007F1F7B /* Info.plist */,
 				4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */,
@@ -132,7 +133,6 @@
 		4EDA050D1CE28AAC00BCE88E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9CAFD72D1CE905DF00F39869 /* data */,
 				4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */,
 			);
 			name = Resources;
@@ -323,6 +323,7 @@
 			files = (
 				4EDA050F1CE28ABE00BCE88E /* fontawesome-webfont.ttf in Resources */,
 				4EDA050B1CE283AD00BCE88E /* delete.png in Resources */,
+				9CAFD7301CE9412F00F39869 /* dongers.json in Resources */,
 				4EFD83FB1CE23E6000258C0E /* Keyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,7 +335,6 @@
 				4EF3F5391CDBEB70006C6E2B /* LaunchScreen.storyboard in Resources */,
 				4EF3F5361CDBEB70006C6E2B /* Assets.xcassets in Resources */,
 				4EF3F5341CDBEB70006C6E2B /* Main.storyboard in Resources */,
-				9CAFD72E1CE905DF00F39869 /* data in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
