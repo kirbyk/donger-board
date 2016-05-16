@@ -104,7 +104,9 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidAppear(animated)
         
         self.addButtons()
+        self.layoutButtons(self.scrollView, container: self.containerView, labels: self.categories)
         
+        /*
         let numRows = 4
         let numColumns = 3
         
@@ -136,6 +138,7 @@ class KeyboardViewController: UIInputViewController {
         }
         
         self.scrollView.addSubview(containerView)
+        */
 
     }
     
@@ -148,6 +151,39 @@ class KeyboardViewController: UIInputViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func layoutButtons(scroller: UIScrollView, container: UIView, labels: [String]) {
+        
+        let numRows = 4
+        let numColumns = 3
+        
+        let buttonSpacing = CGFloat(5)
+        
+        let buttonWidth = ( scroller.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
+        let buttonHeight = scroller.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
+        
+        scroller.contentSize.width = buttonSpacing + CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing)
+        scroller.contentSize.height = self.view.frame.height
+        
+        // Layout buttons in columns of 4
+        for (i, category) in labels.enumerate() {
+            let button = UIButton(type: .System)
+            
+            let xVal = (CGFloat)(buttonWidth + buttonSpacing) * CGFloat(i / numRows) + buttonSpacing
+            let yVal = (CGFloat)(buttonHeight + buttonSpacing) * CGFloat(i % numRows) + buttonSpacing
+            
+            button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
+            button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
+            button.setTitle(category, forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            button.addTarget(self, action: #selector(self.didTapDongerButton), forControlEvents: UIControlEvents.TouchUpInside)
+            
+            container.addSubview(button)
+        }
+        
+        // Add container with all buttons to the scroll view
+        scroller.addSubview(container)
     }
 
     func addButtons() {
