@@ -23,8 +23,6 @@ class KeyboardViewController: UIInputViewController {
     
     var scrollView: UIScrollView!
     
-    var dongerView: UIScrollView!
-    
     var containerView = UIView()
 
     let categories = [
@@ -104,42 +102,7 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidAppear(animated)
         
         self.addButtons()
-        self.layoutButtons(self.scrollView, container: self.containerView, labels: self.categories)
-        
-        /*
-        let numRows = 4
-        let numColumns = 3
-        
-        let buttonSpacing = CGFloat(5)
-        
-        let buttonWidth = ( self.scrollView.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
-        let buttonHeight = self.scrollView.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
-        
-        self.scrollView.contentSize.width = buttonSpacing + CGFloat(categories.count / numRows) * (buttonWidth + buttonSpacing)
-        self.scrollView.contentSize.height = self.view.frame.height
-        
-        self.containerView = UIView()
-        
-        print("inb4")
-        
-        for (i, category) in categories.enumerate() {
-            let button = UIButton(type: .System)
-            
-            let xVal = (CGFloat)(buttonWidth + buttonSpacing) * CGFloat(i / numRows) + buttonSpacing
-            let yVal = (CGFloat)(buttonHeight + buttonSpacing) * CGFloat(i % numRows) + buttonSpacing
-            
-            button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
-            button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
-            button.setTitle(category, forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            button.addTarget(self, action: #selector(self.didTapDongerButton), forControlEvents: UIControlEvents.TouchUpInside)
-            
-            self.containerView.addSubview(button)
-        }
-        
-        self.scrollView.addSubview(containerView)
-        */
-
+        self.layoutButtons(categories, keyboardLevel: 0)
     }
     
     override func viewDidLayoutSubviews() {
@@ -153,18 +116,17 @@ class KeyboardViewController: UIInputViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func layoutButtons(scroller: UIScrollView, container: UIView, labels: [String]) {
-        
+    func layoutButtons(labels: [String], keyboardLevel: Int) {
         let numRows = 4
         let numColumns = 3
         
         let buttonSpacing = CGFloat(5)
         
-        let buttonWidth = ( scroller.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
-        let buttonHeight = scroller.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
+        let buttonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
+        let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
         
-        scroller.contentSize.width = buttonSpacing + CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing)
-        scroller.contentSize.height = self.view.frame.height
+        scrollView.contentSize.width = buttonSpacing + CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing)
+        scrollView.contentSize.height = self.view.frame.height
         
         // Layout buttons in columns of 4
         for (i, category) in labels.enumerate() {
@@ -177,13 +139,14 @@ class KeyboardViewController: UIInputViewController {
             button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
             button.setTitle(category, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            button.tag = keyboardLevel  // This is hacky but is used to differentiate between category buttons and donger keys
             button.addTarget(self, action: #selector(self.didTapDongerButton), forControlEvents: UIControlEvents.TouchUpInside)
             
-            container.addSubview(button)
+            containerView.addSubview(button)
         }
         
         // Add container with all buttons to the scroll view
-        scroller.addSubview(container)
+        scrollView.addSubview(containerView)
     }
 
     func addButtons() {
@@ -320,21 +283,18 @@ class KeyboardViewController: UIInputViewController {
     func didTapDongerButton(sender:UIButton) {
         print("didTapDongerButton")
         let text = sender.currentTitle!
-        let keyLabels = donger.getDongers(text)
-        print(keyLabels)
         
-        let frame = CGRectMake(0, 0, containerView.bounds.width, containerView.bounds.height - 40)
-
-        self.dongerView = UIScrollView(frame: frame)
-        self.dongerView.backgroundColor = UIColor.blueColor()
-        dongerView.contentSize.height = self.view.frame.height
-        dongerView.contentSize.width = self.view.frame.width
+        // Based on the tag we assigned in the argument, either display a new view with keys OR
+        // enter the donger that was tapped into the text field
+        if (sender.tag == 0) {
+            let keyLabels = donger.getDongers(text)
+            print(keyLabels)
         
-        self.containerView.addSubview(dongerView)
+            self.layoutButtons(keyLabels, keyboardLevel: 1)
+        } else if (sender.tag == 1) {
+            let proxy = self.textDocumentProxy
+            proxy.insertText(text)
+        }
         
-        /*
-        let proxy = self.textDocumentProxy
-        proxy.insertText("༼つ ◕_◕ ༽つ")
-        */
     }
 }
