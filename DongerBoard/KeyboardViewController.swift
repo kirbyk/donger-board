@@ -126,7 +126,7 @@ class KeyboardViewController: UIInputViewController {
         let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
         
         scrollView.contentSize.width = buttonSpacing + CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing)
-        scrollView.contentSize.height = self.view.frame.height
+        scrollView.contentSize.height = buttonSpacing + CGFloat(numRows) * (buttonHeight + buttonSpacing)
         
         // Layout buttons in columns of 4
         for (i, category) in labels.enumerate() {
