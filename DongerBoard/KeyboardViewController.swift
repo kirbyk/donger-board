@@ -116,6 +116,11 @@ class KeyboardViewController: UIInputViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // Layout bottom row of keyboard options (recent dongers, favorites, etc...)
+    
+    
+    
+    // Layout either categories of dongers or donger keys themselves
     func layoutButtons(labels: [String], keyboardLevel: Int) {
         let numRows = 4
         let numColumns = 3
@@ -185,7 +190,7 @@ class KeyboardViewController: UIInputViewController {
     func addRecentButton() {
         self.recentButton = UIButton()
         
-        self.recentButton.setTitle("", forState: .Normal)
+        self.recentButton.setTitle("\u{f017}", forState: .Normal)
         self.recentButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
         self.recentButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.recentButton.sizeToFit()
@@ -200,7 +205,7 @@ class KeyboardViewController: UIInputViewController {
     func addFavoriteButton() {
         self.switchButton = UIButton()
         
-        self.switchButton.setTitle("", forState: .Normal)
+        self.switchButton.setTitle("\u{f004}", forState: .Normal)
         self.switchButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
         self.switchButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.switchButton.sizeToFit()
@@ -215,7 +220,7 @@ class KeyboardViewController: UIInputViewController {
     func addAllButton() {
         self.allButton = UIButton()
         
-        self.allButton.setTitle("", forState: .Normal)
+        self.allButton.setTitle("\u{f118}", forState: .Normal)
         self.allButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
         self.allButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.allButton.sizeToFit()
@@ -230,7 +235,7 @@ class KeyboardViewController: UIInputViewController {
     func addTrendingButton() {
         self.trendingButton = UIButton()
         
-        self.trendingButton.setTitle("", forState: .Normal)
+        self.trendingButton.setTitle("\u{f201}", forState: .Normal)
         self.trendingButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
         self.trendingButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.trendingButton.sizeToFit()
@@ -245,7 +250,7 @@ class KeyboardViewController: UIInputViewController {
     func addRandomButton() {
         self.randomButton = UIButton()
         
-        self.randomButton.setTitle("", forState: .Normal)
+        self.randomButton.setTitle("\u{f006}", forState: .Normal)
         self.randomButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
         self.randomButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.randomButton.sizeToFit()
@@ -260,7 +265,7 @@ class KeyboardViewController: UIInputViewController {
     func addTBDButton() {
         self.tbdButton = UIButton()
         
-        self.tbdButton.setTitle("", forState: .Normal)
+        self.tbdButton.setTitle("\u{f002}", forState: .Normal)
         self.tbdButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
         self.tbdButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.tbdButton.sizeToFit()
