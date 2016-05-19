@@ -21,6 +21,7 @@
 		4EFD83FB1CE23E6000258C0E /* Keyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */; };
 		9CAFD72A1CE8FAAB00F39869 /* Donger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAFD7291CE8FAAB00F39869 /* Donger.swift */; };
 		9CAFD7301CE9412F00F39869 /* dongers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD72F1CE9412F00F39869 /* dongers.json */; };
+		9CC54DEC1CED5B2A00F18F70 /* ControlKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Keyboard.storyboard; sourceTree = "<group>"; };
 		9CAFD7291CE8FAAB00F39869 /* Donger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Donger.swift; sourceTree = "<group>"; };
 		9CAFD72F1CE9412F00F39869 /* dongers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dongers.json; path = data/dongers.json; sourceTree = SOURCE_ROOT; };
+		9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */,
 				4EDA050A1CE283AD00BCE88E /* delete.png */,
 				9CAFD7291CE8FAAB00F39869 /* Donger.swift */,
+				9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */,
 			);
 			path = DongerBoard;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CAFD72A1CE8FAAB00F39869 /* Donger.swift in Sources */,
+				9CC54DEC1CED5B2A00F18F70 /* ControlKey.swift in Sources */,
 				4E3FBD1B1CDBF936007F1F7B /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
