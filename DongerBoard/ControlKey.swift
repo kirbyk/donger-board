@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+protocol ControlKeyDelegate: class {
+    
+    func switchKeyboardTapped()
+}
+
 class ControlKey {
     var title: String!
     var button: UIButton!
@@ -35,5 +40,16 @@ class ControlKey {
     }
     
     @objc func onButtonTap() {}
+    
+}
+
+// Check out: http://stephenradford.me/creating-a-delegate-in-swift/
+class SwitchBackCategories: ControlKey {
+    
+    weak var delegate: ControlKeyDelegate?
+    
+    @objc override func onButtonTap() {
+        delegate?.switchKeyboardTapped()
+    }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
+class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
 
     var nextKeyboardButton: UIButton!
     var recentButton = ControlKey(title: "\u{f017}")
@@ -17,7 +17,7 @@ class KeyboardViewController: UIInputViewController {
     var allButton = ControlKey(title: "\u{f118}")
     var trendingButton = ControlKey(title: "\u{f201}")
     var searchButton = ControlKey(title: "\u{f002}")
-    var switchButton = ControlKey(title: "\u{f24d}")
+    var switchButton = SwitchBackCategories(title: "\u{f24d}")
     
     var scrollView: UIScrollView!
     var containerView = UIView()
@@ -211,7 +211,7 @@ class KeyboardViewController: UIInputViewController {
     // called from the ControlKey class right now. We need to use a protocol to do this correctly
     // Doing so will also allow us to implement the nextKeyboard and delete methods in 
     // ControlKey using protocols (currently those two methods are implemented in this class)
-    func didTapSwitchButton() {
+    func switchKeyboardTapped() {
         self.layoutButtons(categories, keyboardLevel: 0)
     }
 }
