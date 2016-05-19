@@ -13,11 +13,11 @@ class KeyboardViewController: UIInputViewController {
 
     var nextKeyboardButton: UIButton!
     var recentButton: UIButton!
-    var favoriteButton: UIButton!
     var allButton: UIButton!
     var trendingButton: UIButton!
     var randomButton: UIButton!
     var tbdButton: UIButton!
+    var switchButton: UIButton!
     
     var dongerButton: UIButton!
     
@@ -179,6 +179,7 @@ class KeyboardViewController: UIInputViewController {
         self.addTrendingButton()
         self.addRandomButton()
         self.addTBDButton()
+        self.addSwitchButton()
     }
     
     func addRecentButton() {
@@ -197,18 +198,18 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func addFavoriteButton() {
-        self.favoriteButton = UIButton()
+        self.switchButton = UIButton()
         
-        self.favoriteButton.setTitle("", forState: .Normal)
-        self.favoriteButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        self.favoriteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.favoriteButton.sizeToFit()
-        self.favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        self.switchButton.setTitle("", forState: .Normal)
+        self.switchButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.switchButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.switchButton.sizeToFit()
+        self.switchButton.translatesAutoresizingMaskIntoConstraints = false
         
-        self.view.addSubview(self.favoriteButton)
+        self.view.addSubview(self.switchButton)
         
-        self.favoriteButton.leftAnchor.constraintEqualToAnchor(self.recentButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
-        self.favoriteButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+        self.switchButton.leftAnchor.constraintEqualToAnchor(self.recentButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.switchButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
     }
     
     func addAllButton() {
@@ -222,7 +223,7 @@ class KeyboardViewController: UIInputViewController {
         
         self.view.addSubview(self.allButton)
     
-        self.allButton.leftAnchor.constraintEqualToAnchor(self.favoriteButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.allButton.leftAnchor.constraintEqualToAnchor(self.switchButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
         self.allButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
     }
     
@@ -271,6 +272,23 @@ class KeyboardViewController: UIInputViewController {
         self.tbdButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
     }
     
+    func addSwitchButton() {
+        self.switchButton = UIButton()
+        
+        self.switchButton.setTitle("\u{f24d}", forState: .Normal)
+        self.switchButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
+        self.switchButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.switchButton.sizeToFit()
+        self.switchButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(self.switchButton)
+        
+        self.switchButton.leftAnchor.constraintEqualToAnchor(self.tbdButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
+        self.switchButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
+        
+        self.switchButton.addTarget(self, action: #selector(self.didTapSwitchButton), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
     func addDeleteButton() {
         let deleteButton = UIImage(named: "delete.png")
         
@@ -296,5 +314,10 @@ class KeyboardViewController: UIInputViewController {
             proxy.insertText(text)
         }
         
+    }
+    
+    // Switch back to categories layout
+    func didTapSwitchButton() {
+        self.layoutButtons(categories, keyboardLevel: 0)
     }
 }
