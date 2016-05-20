@@ -90,6 +90,8 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         super.viewDidLoad()
         
         self.view.backgroundColor = greyColor
+        
+        switchButton.delegate = self
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)

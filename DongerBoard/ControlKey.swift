@@ -48,7 +48,7 @@ class SwitchBackCategories: ControlKey {
     
     weak var delegate: ControlKeyDelegate?
     
-    @objc override func onButtonTap() {
+    override func onButtonTap() {
         delegate?.switchKeyboardTapped()
     }
     
