@@ -285,11 +285,11 @@
 				TargetAttributes = {
 					4E3FBD171CDBF936007F1F7B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TJLU67SB23;
+						DevelopmentTeam = XQX5P2VT68;
 					};
 					4EF3F52A1CDBEB70006C6E2B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TJLU67SB23;
+						DevelopmentTeam = XQX5P2VT68;
 					};
 					4EF3F53E1CDBEB70006C6E2B = {
 						CreatedOnToolsVersion = 7.3;
@@ -444,7 +444,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DongerBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger.DongerBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger.DongerBoard2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -458,7 +458,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DongerBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger.DongerBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = KK.Donger.DongerBoard2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
