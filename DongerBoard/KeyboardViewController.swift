@@ -7,22 +7,19 @@
 //
 
 import UIKit
-import Donger
 
-class KeyboardViewController: UIInputViewController {
+class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
 
     var nextKeyboardButton: UIButton!
-    var recentButton: UIButton!
-    var favoriteButton: UIButton!
-    var allButton: UIButton!
-    var trendingButton: UIButton!
-    var randomButton: UIButton!
-    var tbdButton: UIButton!
-    
-    var dongerButton: UIButton!
+    var recentButton = ControlKey(title: "\u{f017}")
+    var favoriteButton = ControlKey(title: "\u{f006}")
+    var heartButton = ControlKey(title: "\u{f004}")
+    var allButton = ControlKey(title: "\u{f118}")
+    var trendingButton = ControlKey(title: "\u{f201}")
+    var searchButton = ControlKey(title: "\u{f002}")
+    var switchButton = SwitchBackCategories(title: "\u{f24d}")
     
     var scrollView: UIScrollView!
-    
     var containerView = UIView()
 
     let categories = [
@@ -93,6 +90,8 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = greyColor
+        
+        switchButton.delegate = self
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
@@ -101,7 +100,7 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.addButtons()
+        self.addKeyboardControlButtons()
         self.layoutButtons(categories, keyboardLevel: 0)
     }
     
@@ -116,6 +115,22 @@ class KeyboardViewController: UIInputViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // Layout bottom row of keyboard options (recent dongers, favorites, etc...)
+    func addKeyboardControlButtons() {
+        self.addNextKeyboardButton()
+        
+        recentButton.addButton(view: self.view, leftAnchorAlign: self.nextKeyboardButton.rightAnchor)
+        favoriteButton.addButton(view: self.view, leftAnchorAlign: self.recentButton.button.rightAnchor)
+        heartButton.addButton(view: self.view, leftAnchorAlign: self.favoriteButton.button.rightAnchor)
+        allButton.addButton(view: self.view, leftAnchorAlign: self.heartButton.button.rightAnchor)
+        trendingButton.addButton(view: self.view, leftAnchorAlign: self.allButton.button.rightAnchor)
+        searchButton.addButton(view: self.view, leftAnchorAlign: self.trendingButton.button.rightAnchor)
+        switchButton.addButton(view: self.view, leftAnchorAlign: self.searchButton.button.rightAnchor)
+        
+        self.addDeleteButton()
+    }
+    
+    // Layout either categories of dongers or donger keys themselves
     func layoutButtons(labels: [String], keyboardLevel: Int) {
         let numRows = 4
         let numColumns = 3
@@ -149,12 +164,6 @@ class KeyboardViewController: UIInputViewController {
         scrollView.addSubview(containerView)
     }
 
-    func addButtons() {
-        self.addNextKeyboardButton()
-        self.addCategoryButtons()
-        self.addDeleteButton()
-    }
-
     func addNextKeyboardButton() {
         self.nextKeyboardButton = UIButton()
         
@@ -170,105 +179,6 @@ class KeyboardViewController: UIInputViewController {
 
         self.nextKeyboardButton.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor, constant: 20).active = true
         self.nextKeyboardButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -5).active = true
-    }
-    
-    func addCategoryButtons() {
-        self.addRecentButton()
-        self.addFavoriteButton()
-        self.addAllButton()
-        self.addTrendingButton()
-        self.addRandomButton()
-        self.addTBDButton()
-    }
-    
-    func addRecentButton() {
-        self.recentButton = UIButton()
-        
-        self.recentButton.setTitle("", forState: .Normal)
-        self.recentButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        self.recentButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.recentButton.sizeToFit()
-        self.recentButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(self.recentButton)
-        
-        self.recentButton.leftAnchor.constraintEqualToAnchor(self.nextKeyboardButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
-        self.recentButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
-    }
-    
-    func addFavoriteButton() {
-        self.favoriteButton = UIButton()
-        
-        self.favoriteButton.setTitle("", forState: .Normal)
-        self.favoriteButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        self.favoriteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.favoriteButton.sizeToFit()
-        self.favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(self.favoriteButton)
-        
-        self.favoriteButton.leftAnchor.constraintEqualToAnchor(self.recentButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
-        self.favoriteButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
-    }
-    
-    func addAllButton() {
-        self.allButton = UIButton()
-        
-        self.allButton.setTitle("", forState: .Normal)
-        self.allButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        self.allButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.allButton.sizeToFit()
-        self.allButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(self.allButton)
-    
-        self.allButton.leftAnchor.constraintEqualToAnchor(self.favoriteButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
-        self.allButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
-    }
-    
-    func addTrendingButton() {
-        self.trendingButton = UIButton()
-        
-        self.trendingButton.setTitle("", forState: .Normal)
-        self.trendingButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        self.trendingButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.trendingButton.sizeToFit()
-        self.trendingButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(self.trendingButton)
-        
-        self.trendingButton.leftAnchor.constraintEqualToAnchor(self.allButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
-        self.trendingButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
-    }
-    
-    func addRandomButton() {
-        self.randomButton = UIButton()
-        
-        self.randomButton.setTitle("", forState: .Normal)
-        self.randomButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        self.randomButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.randomButton.sizeToFit()
-        self.randomButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(self.randomButton)
-        
-        self.randomButton.leftAnchor.constraintEqualToAnchor(self.trendingButton.rightAnchor, constant: self.categoryButtonSpacing).active = true
-        self.randomButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
-    }
-    
-    func addTBDButton() {
-        self.tbdButton = UIButton()
-        
-        self.tbdButton.setTitle("", forState: .Normal)
-        self.tbdButton.titleLabel!.font = UIFont(name: "FontAwesome", size: 20)
-        self.tbdButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.tbdButton.sizeToFit()
-        self.tbdButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(self.tbdButton)
-        
-        self.tbdButton.leftAnchor.constraintEqualToAnchor(self.randomButton.rightAnchor, constant: 15).active = true
-        self.tbdButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -6).active = true
     }
     
     func addDeleteButton() {
@@ -296,5 +206,14 @@ class KeyboardViewController: UIInputViewController {
             proxy.insertText(text)
         }
         
+    }
+    
+    // Switch back to categories layout
+    // NOTE: this is the correct way of implementing the switch layouts but it cannot be
+    // called from the ControlKey class right now. We need to use a protocol to do this correctly
+    // Doing so will also allow us to implement the nextKeyboard and delete methods in 
+    // ControlKey using protocols (currently those two methods are implemented in this class)
+    func switchKeyboardTapped() {
+        self.layoutButtons(categories, keyboardLevel: 0)
     }
 }
