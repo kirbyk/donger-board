@@ -10,7 +10,7 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
 
-    var nextKeyboardButton: UIButton!
+    var nextKeyboardButton = NextKeyboardButton(title: "ABC")
     var recentButton = ControlKey(title: "\u{f017}")
     var favoriteButton = ControlKey(title: "\u{f006}")
     var heartButton = ControlKey(title: "\u{f004}")
@@ -91,7 +91,9 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         
         self.view.backgroundColor = greyColor
         
+        // "Register" delegate targets with this class
         switchButton.delegate = self
+        nextKeyboardButton.delegate = self
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
@@ -117,9 +119,8 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
     
     // Layout bottom row of keyboard options (recent dongers, favorites, etc...)
     func addKeyboardControlButtons() {
-        self.addNextKeyboardButton()
-        
-        recentButton.addButton(view: self.view, leftAnchorAlign: self.nextKeyboardButton.rightAnchor)
+        nextKeyboardButton.addButton("HelveticaNeue", spacing: CGFloat(20), view: self.view, leftAnchorAlign: self.view.leftAnchor)
+        recentButton.addButton(view: self.view, leftAnchorAlign: self.nextKeyboardButton.button.rightAnchor)
         favoriteButton.addButton(view: self.view, leftAnchorAlign: self.recentButton.button.rightAnchor)
         heartButton.addButton(view: self.view, leftAnchorAlign: self.favoriteButton.button.rightAnchor)
         allButton.addButton(view: self.view, leftAnchorAlign: self.heartButton.button.rightAnchor)
@@ -163,23 +164,6 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         // Add container with all buttons to the scroll view
         scrollView.addSubview(containerView)
     }
-
-    func addNextKeyboardButton() {
-        self.nextKeyboardButton = UIButton()
-        
-        self.nextKeyboardButton.setTitle("ABC", forState: .Normal)
-        self.nextKeyboardButton.titleLabel!.font = UIFont(name: "HelveticaNeue", size: 20)
-        self.nextKeyboardButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.nextKeyboardButton.sizeToFit()
-        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.nextKeyboardButton.addTarget(self, action: #selector(UIInputViewController.advanceToNextInputMode), forControlEvents: .TouchUpInside)
-        
-        self.view.addSubview(self.nextKeyboardButton)
-
-        self.nextKeyboardButton.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor, constant: 20).active = true
-        self.nextKeyboardButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -5).active = true
-    }
     
     func addDeleteButton() {
         let deleteButton = UIImage(named: "delete.png")
@@ -208,11 +192,12 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         
     }
     
+    // Next keyboard
+    func advanceNextKeyboard() {
+        super.advanceToNextInputMode()
+    }
+    
     // Switch back to categories layout
-    // NOTE: this is the correct way of implementing the switch layouts but it cannot be
-    // called from the ControlKey class right now. We need to use a protocol to do this correctly
-    // Doing so will also allow us to implement the nextKeyboard and delete methods in 
-    // ControlKey using protocols (currently those two methods are implemented in this class)
     func switchKeyboardTapped() {
         self.layoutButtons(categories, keyboardLevel: 0)
     }

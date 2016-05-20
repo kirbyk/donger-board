@@ -12,6 +12,7 @@ import UIKit
 protocol ControlKeyDelegate: class {
     
     func switchKeyboardTapped()
+    func advanceNextKeyboard()
 }
 
 class ControlKey {
@@ -45,11 +46,19 @@ class ControlKey {
 
 // Check out: http://stephenradford.me/creating-a-delegate-in-swift/
 class SwitchBackCategories: ControlKey {
-    
     weak var delegate: ControlKeyDelegate?
     
     override func onButtonTap() {
         delegate?.switchKeyboardTapped()
     }
     
+}
+
+// 'ABC' button that goes to next keyboard
+class NextKeyboardButton: ControlKey {
+    weak var delegate: ControlKeyDelegate?
+    
+    override func onButtonTap() {
+        delegate?.advanceNextKeyboard()
+    }
 }
