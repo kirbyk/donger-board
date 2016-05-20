@@ -77,7 +77,9 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         "WHY"
     ]
     
+    // Helper classes
     let donger = Donger()
+    var dongerLengthStack = DongerLengthStack()
     
     let greyColor = UIColor(red:0.35, green:0.34, blue:0.35, alpha:1.00)
     let categoryButtonSpacing = CGFloat(10)
@@ -165,29 +167,41 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         scrollView.addSubview(containerView)
     }
     
+    // TODO: delete button appears blue: change to white
     func addDeleteButton() {
-        let deleteButton = UIImage(named: "delete.png")
-        
-        let imageView = UIImageView(image: deleteButton!)
-        imageView.frame = CGRect(x: self.scrollView.bounds.width - 30 - 20, y: self.scrollView.bounds.height + 8, width: 27, height: 18)
-        
-        self.view.addSubview(imageView)
+        let deleteButtonImg = UIImage(named: "delete.png")
+        let deleteButton = UIButton(type: .System)
+        deleteButton.setImage(deleteButtonImg, forState: .Normal)
+        deleteButton.frame = CGRect(x: self.scrollView.bounds.width - 30 - 20, y: self.scrollView.bounds.height + 8, width: 27, height: 18)
+        deleteButton.addTarget(self, action: #selector(self.didTapDelete), forControlEvents: UIControlEvents.TouchUpInside)
+
+        self.view.addSubview(deleteButton)
     }
     
     func didTapDongerButton(sender:UIButton) {
-        print("didTapDongerButton")
         let text = sender.currentTitle!
         
         // Based on the tag we assigned in the argument, either display a new view with keys OR
         // enter the donger that was tapped into the text field
         if (sender.tag == 0) {
             let keyLabels = donger.getDongers(text)
-            print(keyLabels)
         
             self.layoutButtons(keyLabels, keyboardLevel: 1)
         } else if (sender.tag == 1) {
             let proxy = self.textDocumentProxy
             proxy.insertText(text)
+            dongerLengthStack.push(text.characters.count)
+        }
+        
+    }
+    
+    // Delete the entire length of the donger
+    func didTapDelete() {
+        let proxy = self.textDocumentProxy
+        
+        let charsToDelete = dongerLengthStack.pop()
+        for _ in 0..<charsToDelete {
+            proxy.deleteBackward()
         }
         
     }

@@ -41,7 +41,6 @@ class ControlKey {
     }
     
     @objc func onButtonTap() {}
-    
 }
 
 // Check out: http://stephenradford.me/creating-a-delegate-in-swift/
@@ -51,7 +50,6 @@ class SwitchBackCategories: ControlKey {
     override func onButtonTap() {
         delegate?.switchKeyboardTapped()
     }
-    
 }
 
 // 'ABC' button that goes to next keyboard
