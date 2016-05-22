@@ -155,6 +155,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
             
             button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
             button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
+            button.layer.cornerRadius = 4.0
             button.setTitle(category, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             button.tag = keyboardLevel  // This is hacky but is used to differentiate between category buttons and donger keys
