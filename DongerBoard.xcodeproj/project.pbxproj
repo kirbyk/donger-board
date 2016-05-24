@@ -147,11 +147,11 @@
 		4EF3F5221CDBEB70006C6E2B = {
 			isa = PBXGroup;
 			children = (
-				4EDA050D1CE28AAC00BCE88E /* Resources */,
 				4EF3F52D1CDBEB70006C6E2B /* App */,
+				4E3FBD191CDBF936007F1F7B /* Keyboard */,
+				4EDA050D1CE28AAC00BCE88E /* Resources */,
 				4EF3F5421CDBEB70006C6E2B /* DongerBoardTests */,
 				4EF3F54D1CDBEB70006C6E2B /* DongerBoardUITests */,
-				4E3FBD191CDBF936007F1F7B /* Keyboard */,
 				4EF3F52C1CDBEB70006C6E2B /* Products */,
 			);
 			sourceTree = "<group>";

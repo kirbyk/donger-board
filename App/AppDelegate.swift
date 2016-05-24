@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Donger
+//  DongerBoard
 //
 //  Created by Kirby Kohlmorgen on 5/5/16.
 //  Copyright © 2016 Kirby Kohlmorgen. All rights reserved.

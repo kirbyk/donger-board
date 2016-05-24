@@ -1,6 +1,6 @@
 //
 //  Donger.swift
-//  Donger
+//  DongerBoard
 //
 //  Created by Everett Berry on 5/15/16.
 //  Copyright © 2016 Kirby Kohlmorgen. All rights reserved.
