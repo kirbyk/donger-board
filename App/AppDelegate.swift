@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import React
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let rootView: RCTRootView = RCTRootView(bundleURL: NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios"),
+                                                moduleName: "DongerBoardApp", initialProperties: nil, launchOptions: nil)
+        
+        if let window = self.window{
+            let rootViewController = UIViewController()
+            rootViewController.view = rootView
+            window.rootViewController = rootViewController
+        }
+
         return true
     }
 

@@ -1,0 +1,11 @@
+{
+  "name": "DongerBoard",
+  "version": "0.3.0",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "react": "15.0.2",
+    "react-native": "0.26.1"
+  }
+}
