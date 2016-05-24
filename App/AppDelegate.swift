@@ -19,11 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootView: RCTRootView = RCTRootView(bundleURL: NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios"),
                                                 moduleName: "DongerBoardApp", initialProperties: nil, launchOptions: nil)
         
-        if let window = self.window{
-            let rootViewController = UIViewController()
-            rootViewController.view = rootView
-            window.rootViewController = rootViewController
-        }
+        let rootViewController = UIViewController()
+        rootViewController.view = rootView
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible()
 
         return true
     }
