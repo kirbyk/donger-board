@@ -200,9 +200,10 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
     func didTapDelete() {
         let proxy = self.textDocumentProxy
         
-        let charsToDelete = dongerLengthStack.pop()
-        for _ in 0..<charsToDelete {
-            proxy.deleteBackward()
+        if let charsToDelete = dongerLengthStack.pop() {
+            for _ in 0..<charsToDelete {
+                proxy.deleteBackward()
+            }
         }
         
     }

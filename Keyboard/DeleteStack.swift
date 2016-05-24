@@ -24,7 +24,7 @@ struct DongerLengthStack {
         items.append(item)
     }
     
-    mutating func pop() -> Int {
-        return items.removeLast()
+    mutating func pop() -> Int? {
+        return items.popLast()
     }
 }
