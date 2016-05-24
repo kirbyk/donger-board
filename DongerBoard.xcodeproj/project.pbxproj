@@ -16,8 +16,8 @@
 		4EF3F5341CDBEB70006C6E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3F5321CDBEB70006C6E2B /* Main.storyboard */; };
 		4EF3F5361CDBEB70006C6E2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3F5351CDBEB70006C6E2B /* Assets.xcassets */; };
 		4EF3F5391CDBEB70006C6E2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF3F5371CDBEB70006C6E2B /* LaunchScreen.storyboard */; };
-		4EF3F5441CDBEB70006C6E2B /* DongerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F5431CDBEB70006C6E2B /* DongerTests.swift */; };
-		4EF3F54F1CDBEB70006C6E2B /* DongerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F54E1CDBEB70006C6E2B /* DongerUITests.swift */; };
+		4EF3F5441CDBEB70006C6E2B /* DongerBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F5431CDBEB70006C6E2B /* DongerBoardTests.swift */; };
+		4EF3F54F1CDBEB70006C6E2B /* DongerBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3F54E1CDBEB70006C6E2B /* DongerBoardUITests.swift */; };
 		4EFD83FB1CE23E6000258C0E /* Keyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */; };
 		9CAFD72A1CE8FAAB00F39869 /* Donger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAFD7291CE8FAAB00F39869 /* Donger.swift */; };
 		9CAFD7301CE9412F00F39869 /* dongers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD72F1CE9412F00F39869 /* dongers.json */; };
@@ -77,10 +77,10 @@
 		4EF3F5381CDBEB70006C6E2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EF3F53A1CDBEB70006C6E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EF3F53F1CDBEB70006C6E2B /* DongerBoard.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DongerBoard.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EF3F5431CDBEB70006C6E2B /* DongerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DongerTests.swift; sourceTree = "<group>"; };
+		4EF3F5431CDBEB70006C6E2B /* DongerBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DongerBoardTests.swift; sourceTree = "<group>"; };
 		4EF3F5451CDBEB70006C6E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EF3F54A1CDBEB70006C6E2B /* DongerBoard.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DongerBoard.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4EF3F54E1CDBEB70006C6E2B /* DongerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DongerUITests.swift; sourceTree = "<group>"; };
+		4EF3F54E1CDBEB70006C6E2B /* DongerBoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DongerBoardUITests.swift; sourceTree = "<group>"; };
 		4EF3F5501CDBEB70006C6E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Keyboard.storyboard; sourceTree = "<group>"; };
 		9CAFD7291CE8FAAB00F39869 /* Donger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Donger.swift; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 			children = (
 				4EDA050D1CE28AAC00BCE88E /* Resources */,
 				4EF3F52D1CDBEB70006C6E2B /* App */,
-				4EF3F5421CDBEB70006C6E2B /* DongerTests */,
-				4EF3F54D1CDBEB70006C6E2B /* DongerUITests */,
+				4EF3F5421CDBEB70006C6E2B /* DongerBoardTests */,
+				4EF3F54D1CDBEB70006C6E2B /* DongerBoardUITests */,
 				4E3FBD191CDBF936007F1F7B /* Keyboard */,
 				4EF3F52C1CDBEB70006C6E2B /* Products */,
 			);
@@ -180,22 +180,22 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		4EF3F5421CDBEB70006C6E2B /* DongerTests */ = {
+		4EF3F5421CDBEB70006C6E2B /* DongerBoardTests */ = {
 			isa = PBXGroup;
 			children = (
-				4EF3F5431CDBEB70006C6E2B /* DongerTests.swift */,
+				4EF3F5431CDBEB70006C6E2B /* DongerBoardTests.swift */,
 				4EF3F5451CDBEB70006C6E2B /* Info.plist */,
 			);
-			path = DongerTests;
+			path = DongerBoardTests;
 			sourceTree = "<group>";
 		};
-		4EF3F54D1CDBEB70006C6E2B /* DongerUITests */ = {
+		4EF3F54D1CDBEB70006C6E2B /* DongerBoardUITests */ = {
 			isa = PBXGroup;
 			children = (
-				4EF3F54E1CDBEB70006C6E2B /* DongerUITests.swift */,
+				4EF3F54E1CDBEB70006C6E2B /* DongerBoardUITests.swift */,
 				4EF3F5501CDBEB70006C6E2B /* Info.plist */,
 			);
-			path = DongerUITests;
+			path = DongerBoardUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,7 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EF3F5441CDBEB70006C6E2B /* DongerTests.swift in Sources */,
+				4EF3F5441CDBEB70006C6E2B /* DongerBoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EF3F54F1CDBEB70006C6E2B /* DongerUITests.swift in Sources */,
+				4EF3F54F1CDBEB70006C6E2B /* DongerBoardUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

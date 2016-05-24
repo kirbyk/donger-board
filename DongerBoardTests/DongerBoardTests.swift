@@ -1,5 +1,5 @@
 //
-//  DongerTests.swift
+//  DongerBoardTests.swift
 //  DongerTests
 //
 //  Created by Kirby Kohlmorgen on 5/5/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Donger
 
-class DongerTests: XCTestCase {
+class DongerBoardTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
