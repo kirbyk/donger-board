@@ -66,8 +66,8 @@
 		4E3FBD181CDBF936007F1F7B /* Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		4E3FBD1C1CDBF936007F1F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EDA050A1CE283AD00BCE88E /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
-		4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		4EDA050A1CE283AD00BCE88E /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = Resources/delete.png; sourceTree = "<group>"; };
+		4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "Resources/fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		4EF3F52B1CDBEB70006C6E2B /* DongerBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DongerBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF3F52E1CDBEB70006C6E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF3F5351CDBEB70006C6E2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,7 +129,6 @@
 				4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */,
 				4E3FBD1C1CDBF936007F1F7B /* Info.plist */,
 				4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */,
-				4EDA050A1CE283AD00BCE88E /* delete.png */,
 				9CAFD7291CE8FAAB00F39869 /* Donger.swift */,
 				9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */,
 				9CC54DED1CEF59F700F18F70 /* DeleteStack.swift */,
@@ -140,6 +139,7 @@
 		4EDA050D1CE28AAC00BCE88E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EDA050A1CE283AD00BCE88E /* delete.png */,
 				4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */,
 			);
 			name = Resources;
