@@ -186,7 +186,9 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         // enter the donger that was tapped into the text field
         if (sender.tag == 0) {
             let keyLabels = donger.getDongers(text)
-        
+            for view in containerView.subviews {
+                view.removeFromSuperview()
+            }
             self.layoutButtons(keyLabels, keyboardLevel: 1)
         } else if (sender.tag == 1) {
             let proxy = self.textDocumentProxy
@@ -215,6 +217,9 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
     
     // Switch back to categories layout
     func switchKeyboardTapped() {
+        for view in containerView.subviews {
+            view.removeFromSuperview()
+        }
         self.layoutButtons(categories, keyboardLevel: 0)
     }
 }
