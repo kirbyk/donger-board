@@ -198,6 +198,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
             for view in containerView.subviews {
                 view.removeFromSuperview()
             }
+            scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 40), animated: false)
             self.layoutButtons(keyLabels, keyboardLevel: 1)
         } else if (sender.tag == 1) {
             let proxy = self.textDocumentProxy
@@ -229,6 +230,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         for view in containerView.subviews {
             view.removeFromSuperview()
         }
+        scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 40), animated: true)
         self.layoutButtons(categories, keyboardLevel: 0)
     }
 }
