@@ -143,7 +143,13 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         let buttonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
         let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
         
-        scrollView.contentSize.width = buttonSpacing + CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing)
+        
+        var incompleteColumn = false
+        if labels.count % numRows != 0 {
+            incompleteColumn = true
+        }
+        
+        scrollView.contentSize.width = buttonSpacing + (incompleteColumn ? (CGFloat(labels.count / numRows)+1) * (buttonWidth + buttonSpacing) : CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing))
         scrollView.contentSize.height = buttonSpacing + CGFloat(numRows) * (buttonHeight + buttonSpacing)
         
         // Layout buttons in columns of 4
