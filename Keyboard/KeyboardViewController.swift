@@ -18,6 +18,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
     var trendingButton = ControlKey(title: "\u{f201}")
     var searchButton = ControlKey(title: "\u{f002}")
     var switchButton = SwitchBackCategories(title: "\u{f24d}")
+    var deleteButton = DeleteButton(title: "\u{f100}")
     
     var scrollView: UIScrollView!
     var containerView = UIView()
@@ -96,6 +97,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         // "Register" delegate targets with this class
         switchButton.delegate = self
         nextKeyboardButton.delegate = self
+        deleteButton.delegate = self
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
@@ -129,8 +131,9 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         trendingButton.addButton(view: self.view, leftAnchorAlign: self.allButton.button.rightAnchor)
         searchButton.addButton(view: self.view, leftAnchorAlign: self.trendingButton.button.rightAnchor)
         switchButton.addButton(view: self.view, leftAnchorAlign: self.searchButton.button.rightAnchor)
+        deleteButton.addButton(view: self.view, leftAnchorAlign: self.switchButton.button.rightAnchor)
         
-        self.addDeleteButton()
+        //self.addDeleteButton()
     }
     
     // Layout either categories of dongers or donger keys themselves
