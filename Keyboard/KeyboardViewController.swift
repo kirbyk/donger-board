@@ -168,10 +168,10 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         scrollView.addSubview(containerView)
     }
     
-    // TODO: delete button appears blue: change to white
+    // TODO: remove hardcoded positioning
     func addDeleteButton() {
         let deleteButtonImg = UIImage(named: "delete.png")
-        let deleteButton = UIButton(type: .System)
+        let deleteButton = UIButton(type: UIButtonType.Custom)
         deleteButton.setImage(deleteButtonImg, forState: .Normal)
         deleteButton.frame = CGRect(x: self.scrollView.bounds.width - 30 - 20, y: self.scrollView.bounds.height + 8, width: 27, height: 18)
         deleteButton.addTarget(self, action: #selector(self.didTapDelete), forControlEvents: UIControlEvents.TouchUpInside)
