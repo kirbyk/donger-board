@@ -306,11 +306,11 @@
 				TargetAttributes = {
 					4E3FBD171CDBF936007F1F7B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TJLU67SB23;
+						DevelopmentTeam = K8ZH96QFHC;
 					};
 					4EF3F52A1CDBEB70006C6E2B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = TJLU67SB23;
+						DevelopmentTeam = K8ZH96QFHC;
 					};
 					4EF3F53E1CDBEB70006C6E2B = {
 						CreatedOnToolsVersion = 7.3;
@@ -503,7 +503,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard.Keyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah.KK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -517,7 +517,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard.Keyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah.KK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -619,7 +619,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah;
 				PRODUCT_NAME = DongerBoard;
 				PROVISIONING_PROFILE = "";
 			};
@@ -635,7 +635,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah;
 				PRODUCT_NAME = DongerBoard;
 				PROVISIONING_PROFILE = "";
 			};
