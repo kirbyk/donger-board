@@ -1,5 +1,5 @@
 //
-//  RNBridgeManager.m
+//  KeyboardManagerBridge.m
 //  DongerBoard
 //
 //  Created by Everett Berry on 5/25/16.
@@ -7,3 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "RCTBridgeModule.h"
+
+@interface RCT_EXTERN_MODULE(KeyboardManager, NSObject)
+
+RCT_EXTERN_METHOD(recordColor:(NSString *)color)
+
+@end
