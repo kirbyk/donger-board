@@ -101,6 +101,16 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
+        
+        // Scratching the surface on changing keyboard color
+        let defaults = NSUserDefaults(suiteName: "group.com.kirbykohlmorgen")
+        // defaults?.objectForKey("keyboardColor")
+        
+        if let keyboardColorPref = defaults?.stringForKey("keyboardColor") {
+            print("In keyboard, color chosen is: " + keyboardColorPref)
+        } else {
+            print("Keyboard color not chosen: optional value not init'd")
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

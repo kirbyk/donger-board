@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+@objc(KeyboardManager)
+class KeyboardManager: NSObject {
+    
+    @objc func recordColor(color: String) {
+        print("In swift")
+        print(color)
+        
+        let defaults = NSUserDefaults(suiteName: "group.com.kirbykohlmorgen")
+        defaults?.setObject(color, forKey: "keyboardColor")
+        defaults?.synchronize()
+    }
+    
+}
