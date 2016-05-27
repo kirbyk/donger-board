@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016472691CF8172200045C6F /* DongerKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016472681CF8172200045C6F /* DongerKey.swift */; };
 		4119BE7A022DA62D5F68390A /* Pods_DongerBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45648B927BD298E7A0BC065 /* Pods_DongerBoard.framework */; };
 		4E3FBD1B1CDBF936007F1F7B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */; };
 		4E3FBD1F1CDBF936007F1F7B /* Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4E3FBD181CDBF936007F1F7B /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -65,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		016472681CF8172200045C6F /* DongerKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DongerKey.swift; sourceTree = "<group>"; };
 		4E3FBD181CDBF936007F1F7B /* Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		4E3FBD1C1CDBF936007F1F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				9CF84B271CF69059005A92A7 /* Keyboard.entitlements */,
 				9CAFD72F1CE9412F00F39869 /* dongers.json */,
 				4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */,
+				016472681CF8172200045C6F /* DongerKey.swift */,
 				4E3FBD1C1CDBF936007F1F7B /* Info.plist */,
 				4EFD83FA1CE23E6000258C0E /* Keyboard.storyboard */,
 				9CAFD7291CE8FAAB00F39869 /* Donger.swift */,
@@ -459,6 +462,7 @@
 				9CC54DEE1CEF59F700F18F70 /* DeleteStack.swift in Sources */,
 				9CC54DEC1CED5B2A00F18F70 /* ControlKey.swift in Sources */,
 				4E3FBD1B1CDBF936007F1F7B /* KeyboardViewController.swift in Sources */,
+				016472691CF8172200045C6F /* DongerKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -98,6 +98,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         switchButton.delegate = self
         nextKeyboardButton.delegate = self
         deleteButton.delegate = self
+        //dongerButton.delegate = self
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
