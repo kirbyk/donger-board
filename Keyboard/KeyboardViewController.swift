@@ -161,16 +161,17 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         let numColumns = 3
         
         let buttonSpacing = CGFloat(5)
+        let buttonPadding = CGFloat(20)
         
         var buttonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
-        print("default button width: " + String(buttonWidth))
         let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
         
-        
+        /*
         var incompleteColumn = false
         if labels.count % numRows != 0 {
             incompleteColumn = true
         }
+        */
         
         //scrollView.contentSize.width = buttonSpacing + (incompleteColumn ? (CGFloat(labels.count / numRows)+1) * (buttonWidth + buttonSpacing) : CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing))
         //scrollView.contentSize.height = buttonSpacing + CGFloat(numRows) * (buttonHeight + buttonSpacing)
@@ -194,16 +195,13 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
                     if currentWidth > maxDongerInColumn {
                         maxDongerInColumn = currentWidth
                     }
-                    print("        " + String(evaluateStringWidth(labels[j])))
-                }
-                buttonWidth = maxDongerInColumn // + buttonSpacing
-                print(buttonWidth)
+                  }
+                buttonWidth = maxDongerInColumn + buttonPadding
                 finalScrollViewWidth += buttonWidth
             }
  
             
             let button = UIButton(type: .System)
-            //print("xxxxxx" + String(buttonWidth))
             let xVal = (CGFloat)(buttonWidth + buttonSpacing) * CGFloat(i / numRows) + buttonSpacing
             let yVal = (CGFloat)(buttonHeight + buttonSpacing) * CGFloat(i % numRows) + buttonSpacing
             
@@ -218,7 +216,6 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
             
             containerView.addSubview(button)
         }
-        print(finalScrollViewWidth)
         scrollView.contentSize.width = finalScrollViewWidth
         //scrollView.contentSize.width = buttonSpacing + (incompleteColumn ? (CGFloat(labels.count / numRows)+1) * (buttonWidth + buttonSpacing) : CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing))
         scrollView.contentSize.height = buttonSpacing + CGFloat(numRows) * (buttonHeight + buttonSpacing)
