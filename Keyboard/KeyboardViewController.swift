@@ -203,9 +203,8 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
                   }
                 xVal += buttonWidth + buttonSpacingX
                 buttonWidth = maxDongerInColumn + buttonPadding
-                finalScrollViewWidth += xVal
+                finalScrollViewWidth = xVal + buttonWidth
                 
-                print("buttonWidth: "+String(buttonWidth))
             }
  
             
@@ -226,6 +225,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
             
             containerView.addSubview(button)
         }
+        finalScrollViewWidth += buttonSpacingX
         scrollView.contentSize.width = finalScrollViewWidth
         //scrollView.contentSize.width = buttonSpacing + (incompleteColumn ? (CGFloat(labels.count / numRows)+1) * (buttonWidth + buttonSpacing) : CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing))
         scrollView.contentSize.height = buttonSpacingY + CGFloat(numRows) * (buttonHeight + buttonSpacingY)
