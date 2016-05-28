@@ -165,7 +165,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         let buttonSpacingY = CGFloat(5)
         let buttonPadding = CGFloat(20)
         
-        //var buttonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
+        let minButtonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacingX * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.65)
         let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacingY * (1 + 1 / CGFloat(numRows))
         var buttonWidth = CGFloat(0)
         
@@ -202,7 +202,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
                     }
                   }
                 xVal += buttonWidth + buttonSpacingX
-                buttonWidth = maxDongerInColumn + buttonPadding
+                buttonWidth = ((maxDongerInColumn + buttonPadding) > minButtonWidth ? maxDongerInColumn + buttonPadding : minButtonWidth)
                 finalScrollViewWidth = xVal + buttonWidth
                 
             }
@@ -211,8 +211,6 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
             let button = UIButton(type: .System)
             //let xVal = (CGFloat)(buttonWidth + buttonSpacingX) * CGFloat(i / numRows) + buttonSpacingX //This line breaks x axis spacing
             let yVal = (CGFloat)(buttonHeight + buttonSpacingY) * CGFloat(i % numRows) + buttonSpacingY
-            
-            print("      x:"+String(xVal)+" y:"+String(yVal))
             
             button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
             button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
