@@ -83,6 +83,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
     var dongerLengthStack = DongerLengthStack()
     
     let greyColor = UIColor(red:0.35, green:0.34, blue:0.35, alpha:1.00)
+    var keyColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
     let categoryButtonSpacing = CGFloat(10)
     
     override func updateViewConstraints() {
@@ -102,14 +103,25 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
         
-        // Scratching the surface on changing keyboard color
         let defaults = NSUserDefaults(suiteName: "group.com.kirbykohlmorgen")
-        // defaults?.objectForKey("keyboardColor")
         
         if let keyboardColorPref = defaults?.stringForKey("keyboardColor") {
             print("In keyboard, color chosen is: " + keyboardColorPref)
         } else {
             print("Keyboard color not chosen: optional value not init'd")
+        }
+        
+        print("here")
+        if let kbRGB = defaults?.arrayForKey("keyboardRGB") {
+            // I cannot be held responsbile for the ugliness of this code
+            let _red = kbRGB[0] as! CGFloat
+            let _green = kbRGB[1] as! CGFloat
+            let _blue = kbRGB[2] as! CGFloat
+            
+            // Change keyboard color
+            keyColor = UIColor(red: _red, green: _green, blue: _blue, alpha: 1.0)
+        } else {
+            print("Something went wrong selecting RGBs for keyboard")
         }
     }
     
@@ -201,7 +213,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
             
             
             button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
-            button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
+            button.backgroundColor = keyColor
             button.layer.cornerRadius = 4.0
             button.setTitle(category, forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: .Normal)

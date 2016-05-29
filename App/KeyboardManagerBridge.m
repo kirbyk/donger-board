@@ -12,6 +12,6 @@
 
 @interface RCT_EXTERN_MODULE(KeyboardManager, NSObject)
 
-RCT_EXTERN_METHOD(recordColor:(NSString *)color)
+RCT_EXTERN_METHOD(recordColor:(NSString *)color red:(float *)red green:(float *)green blue:(float *)blue)
 
 @end
