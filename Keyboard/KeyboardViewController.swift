@@ -101,6 +101,16 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
+        
+        // Scratching the surface on changing keyboard color
+        let defaults = NSUserDefaults(suiteName: "group.com.kirbykohlmorgen")
+        // defaults?.objectForKey("keyboardColor")
+        
+        if let keyboardColorPref = defaults?.stringForKey("keyboardColor") {
+            print("In keyboard, color chosen is: " + keyboardColorPref)
+        } else {
+            print("Keyboard color not chosen: optional value not init'd")
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -136,31 +146,59 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         //self.addDeleteButton()
     }
     
+    //Given a string, return a float of its width
+    func evaluateStringWidth (textToEvaluate: String) -> CGFloat{
+        let font = UIFont.systemFontOfSize(15)
+        let attributes = NSDictionary(object: font, forKey:NSFontAttributeName)
+        let sizeOfText = textToEvaluate.sizeWithAttributes((attributes as! [String : AnyObject]))
+        
+        return sizeOfText.width
+    }
+    
     // Layout either categories of dongers or donger keys themselves
     func layoutButtons(labels: [String], keyboardLevel: Int) {
         let numRows = 4
         let numColumns = 3
         
-        let buttonSpacing = CGFloat(5)
+        let buttonSpacingX = CGFloat(5)
+        let buttonSpacingY = CGFloat(5)
+        let buttonPadding = CGFloat(20)
         
-        let buttonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacing * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
-        let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacing * (1 + 1 / CGFloat(numRows))
-        
-        
-        var incompleteColumn = false
-        if labels.count % numRows != 0 {
-            incompleteColumn = true
-        }
-        
-        scrollView.contentSize.width = buttonSpacing + (incompleteColumn ? (CGFloat(labels.count / numRows)+1) * (buttonWidth + buttonSpacing) : CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing))
-        scrollView.contentSize.height = buttonSpacing + CGFloat(numRows) * (buttonHeight + buttonSpacing)
+        let minButtonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacingX * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
+        let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacingY * (1 + 1 / CGFloat(numRows))
+        var buttonWidth = CGFloat(0)
         
         // Layout buttons in columns of 4
+        var finalScrollViewWidth = buttonSpacingX
+        var xVal = CGFloat(0)
         for (i, category) in labels.enumerate() {
+            let yVal = (CGFloat)(buttonHeight + buttonSpacingY) * CGFloat(i % numRows) + buttonSpacingY
+            
+            //For each column set buttonWidth to the width of the largest label
+            if (i % numRows) == 0 {
+                var maxDongerInColumn = CGFloat(0)
+                
+                //Handle the number of categories not being a multiple of numRows
+                var currentColumnNumRows = numRows
+                if (i + numRows) > labels.count{
+                    currentColumnNumRows = labels.count - i
+                }
+                
+                for j in i..<(i+currentColumnNumRows){
+                    let currentWidth = evaluateStringWidth(labels[j])
+                    if currentWidth > maxDongerInColumn {
+                        maxDongerInColumn = currentWidth
+                    }
+                  }
+                xVal += buttonWidth + buttonSpacingX
+                buttonWidth = ((maxDongerInColumn + buttonPadding) > minButtonWidth ? maxDongerInColumn + buttonPadding : minButtonWidth)
+                finalScrollViewWidth = xVal + buttonWidth
+                
+            }
+ 
+            
             let button = UIButton(type: .System)
             
-            let xVal = (CGFloat)(buttonWidth + buttonSpacing) * CGFloat(i / numRows) + buttonSpacing
-            let yVal = (CGFloat)(buttonHeight + buttonSpacing) * CGFloat(i % numRows) + buttonSpacing
             
             button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
             button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
@@ -170,8 +208,12 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
             button.tag = keyboardLevel  // This is hacky but is used to differentiate between category buttons and donger keys
             button.addTarget(self, action: #selector(self.didTapDongerButton), forControlEvents: UIControlEvents.TouchUpInside)
             
+            
             containerView.addSubview(button)
         }
+        finalScrollViewWidth += buttonSpacingX
+        scrollView.contentSize.width = finalScrollViewWidth
+        scrollView.contentSize.height = buttonSpacingY + CGFloat(numRows) * (buttonHeight + buttonSpacingY)
         
         // Add container with all buttons to the scroll view
         scrollView.addSubview(containerView)

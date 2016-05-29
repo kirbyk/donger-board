@@ -5,7 +5,9 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Picker,
+  NativeModules
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -22,12 +24,39 @@ var styles = StyleSheet.create({
 });
 
 class DongerBoardApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: "red"
+    };
+    /* TODO: use later for Picker
+          selectedValue={this.state.color}
+          onValueChange={(lang) => this.setState({color: "Blue"})}>
+          */
+  }
+
+  pickerValueChanged(color) {
+    console.log("JS: picker value changed to " + color);
+    NativeModules.KeyboardManager.recordColor(color);
+    this.setState({color: color});
+  }
+
   render() {
     return (
+        <View>
       <View style={styles.container}>
         <Text style={styles.welcome}>
           ༼つ ◕_◕ ༽つ
         </Text>
+      </View>
+      <View>
+        <Picker 
+          selectedValue={this.state.color}
+          onValueChange={(val) => this.pickerValueChanged(val)}>
+          <Picker.Item label="Red" value="red" />
+          <Picker.Item label="Blue" value="blue" />
+        </Picker>
+      </View>
       </View>
     )
   }

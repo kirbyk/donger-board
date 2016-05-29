@@ -22,6 +22,8 @@
 		9CAFD7301CE9412F00F39869 /* dongers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD72F1CE9412F00F39869 /* dongers.json */; };
 		9CC54DEC1CED5B2A00F18F70 /* ControlKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */; };
 		9CC54DEE1CEF59F700F18F70 /* DeleteStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC54DED1CEF59F700F18F70 /* DeleteStack.swift */; };
+		9CF84B2E1CF6AB02005A92A7 /* KeyboardManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF84B2D1CF6AB02005A92A7 /* KeyboardManagerBridge.m */; };
+		9CF84B301CF6AB43005A92A7 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF84B2F1CF6AB43005A92A7 /* KeyboardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,11 @@
 		9CAFD72F1CE9412F00F39869 /* dongers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dongers.json; path = data/dongers.json; sourceTree = SOURCE_ROOT; };
 		9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlKey.swift; sourceTree = "<group>"; };
 		9CC54DED1CEF59F700F18F70 /* DeleteStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteStack.swift; sourceTree = "<group>"; };
+		9CF84B261CF687E9005A92A7 /* DongerBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DongerBoard.entitlements; sourceTree = "<group>"; };
+		9CF84B271CF69059005A92A7 /* Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Keyboard.entitlements; sourceTree = "<group>"; };
+		9CF84B2C1CF6AB01005A92A7 /* DongerBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DongerBoard-Bridging-Header.h"; sourceTree = "<group>"; };
+		9CF84B2D1CF6AB02005A92A7 /* KeyboardManagerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardManagerBridge.m; sourceTree = "<group>"; };
+		9CF84B2F1CF6AB43005A92A7 /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		E45648B927BD298E7A0BC065 /* Pods_DongerBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DongerBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BD8C24D1577062B4DFAF5E /* Pods-DongerBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DongerBoard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DongerBoard/Pods-DongerBoard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +132,7 @@
 		4E3FBD191CDBF936007F1F7B /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				9CF84B271CF69059005A92A7 /* Keyboard.entitlements */,
 				9CAFD72F1CE9412F00F39869 /* dongers.json */,
 				4E3FBD1A1CDBF936007F1F7B /* KeyboardViewController.swift */,
 				4E3FBD1C1CDBF936007F1F7B /* Info.plist */,
@@ -148,6 +156,7 @@
 		4EF3F5221CDBEB70006C6E2B = {
 			isa = PBXGroup;
 			children = (
+				9CF84B261CF687E9005A92A7 /* DongerBoard.entitlements */,
 				4EF3F52D1CDBEB70006C6E2B /* App */,
 				4E3FBD191CDBF936007F1F7B /* Keyboard */,
 				4EDA050D1CE28AAC00BCE88E /* Resources */,
@@ -177,6 +186,9 @@
 				4EF3F5351CDBEB70006C6E2B /* Assets.xcassets */,
 				4EF3F5371CDBEB70006C6E2B /* LaunchScreen.storyboard */,
 				4EF3F53A1CDBEB70006C6E2B /* Info.plist */,
+				9CF84B2D1CF6AB02005A92A7 /* KeyboardManagerBridge.m */,
+				9CF84B2C1CF6AB01005A92A7 /* DongerBoard-Bridging-Header.h */,
+				9CF84B2F1CF6AB43005A92A7 /* KeyboardManager.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -306,11 +318,21 @@
 				TargetAttributes = {
 					4E3FBD171CDBF936007F1F7B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = K8ZH96QFHC;
+						DevelopmentTeam = TJLU67SB23;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4EF3F52A1CDBEB70006C6E2B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = K8ZH96QFHC;
+						DevelopmentTeam = TJLU67SB23;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					4EF3F53E1CDBEB70006C6E2B = {
 						CreatedOnToolsVersion = 7.3;
@@ -444,7 +466,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF84B2E1CF6AB02005A92A7 /* KeyboardManagerBridge.m in Sources */,
 				4EF3F52F1CDBEB70006C6E2B /* AppDelegate.swift in Sources */,
+				9CF84B301CF6AB43005A92A7 /* KeyboardManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,11 +523,12 @@
 		4E3FBD201CDBF936007F1F7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah.KK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard.Keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -513,11 +538,12 @@
 		4E3FBD211CDBF936007F1F7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah.KK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard.Keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -614,14 +640,23 @@
 			baseConfigurationReference = F6BD8C24D1577062B4DFAF5E /* Pods-DongerBoard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DongerBoard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/React\"/**",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard;
 				PRODUCT_NAME = DongerBoard;
 				PROVISIONING_PROFILE = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "App/DongerBoard-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -630,14 +665,22 @@
 			baseConfigurationReference = 8A43D1477D430F874C62CF85 /* Pods-DongerBoard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DongerBoard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/React\"/**",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kirbykohlmorgen.DongerBoardHannah;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard;
 				PRODUCT_NAME = DongerBoard;
 				PROVISIONING_PROFILE = "";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "App/DongerBoard-Bridging-Header.h";
 			};
 			name = Release;
 		};
