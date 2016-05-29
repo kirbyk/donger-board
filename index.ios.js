@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Picker,
   NativeModules,
   Slider,
   TouchableOpacity
@@ -25,9 +24,11 @@ var styles = StyleSheet.create({
   welcome: {
     fontSize: 16,
     textAlign: 'center',
-    marginTop: 20
+    marginTop: 20,
+    marginBottom: 60
   },
   setKeyboardColorButton: {
+    marginTop: 20,
     alignSelf: 'center',
   },
   setKeyboardColorText: {
@@ -38,35 +39,24 @@ var styles = StyleSheet.create({
 class DongerBoardApp extends React.Component {
   constructor(props) {
     super(props);
+
+    // These are the initial colors of the key in KeyboardViewController.swift
     this.state = {
-      color: "red",
-      redValue: 0,
-      greenValue: 0,
-      blueValue: 0
+      redValue: .37,
+      greenValue: .76,
+      blueValue: .89
     };
   }
 
-  pickerValueChanged(color) {
-    console.log("JS: picker value changed to " + color);
-    this.setState({color: color});
-    /* NOTE: Picker component, moved here for later
-          <Picker 
-            selectedValue={this.state.color}
-            onValueChange={(val) => this.pickerValueChanged(val)}>
-            <Picker.Item label="Red" value="red" />
-            <Picker.Item label="Blue" value="blue" />
-          </Picker>
-    */
-  }
-
   onPressButton() {
-    console.log("change keyboard color");
+    // Pass the keyboard color variables to this swift function
     NativeModules.KeyboardManager.recordColor(this.state.color, 
         this.state.redValue, 
         this.state.greenValue, 
         this.state.blueValue);
   }
 
+  // Called by each style component to dynamically update the colors
   getColor = function() {
     var r = (this.state.redValue * 256).toFixed(0)
     var g = (this.state.greenValue * 256).toFixed(0)
@@ -85,41 +75,34 @@ class DongerBoardApp extends React.Component {
             (つ▀¯▀)つ Dongerboard Settings
           </Text>
 
-          <View style={styles.colorchooser}>
-            <Text style={this.getColor()}>Red</Text>
-            <Text style={this.getColor()}>
-              {(this.state.redValue * 256).toFixed(0)}
-            </Text>
-            <Slider
-              {...this.props}
-              onValueChange={(value) => this.setState({redValue: value})} 
-            />
+          <Text style={this.getColor()}>
+            Red - {(this.state.redValue * 256).toFixed(0)}
+          </Text>
+          <Slider
+            value={this.state.redValue}
+            onValueChange={(value) => this.setState({redValue: value})} />
 
-            <Text style={this.getColor()}>Green</Text>
-            <Text style={this.getColor()}>
-              {(this.state.greenValue * 256).toFixed(0)}
-            </Text>
-            <Slider
-              {...this.props}
-              onValueChange={(value) => this.setState({greenValue: value})} 
-            />
+          <Text style={this.getColor()}>
+            Green - {(this.state.greenValue * 256).toFixed(0)}
+          </Text>
+          <Slider
+            value={this.state.greenValue}
+            onValueChange={(value) => this.setState({greenValue: value})} />
 
-            <Text style={this.getColor()}>Blue</Text>
-            <Text style={this.getColor()}>
-              {(this.state.blueValue * 256).toFixed(0)}
+          <Text style={this.getColor()}>
+            Blue - {(this.state.blueValue * 256).toFixed(0)}
+          </Text>
+          <Slider
+            value={this.state.blueValue}
+            onValueChange={(value) => this.setState({blueValue: value})} />
+
+          <TouchableOpacity 
+            style={styles.setKeyboardColorButton}
+            onPress={this.onPressButton.bind(this)}>
+            <Text style={[styles.setKeyboardColorText, this.getColor()]}>
+              Set Keyboard Color
             </Text>
-            <Slider
-              {...this.props}
-              onValueChange={(value) => this.setState({blueValue: value})} 
-            />
-            <TouchableOpacity 
-              style={styles.setKeyboardColorButton}
-              onPress={this.onPressButton.bind(this)}>
-              <Text style={[styles.setKeyboardColorText, this.getColor()]}>
-                Set Keyboard Color
-              </Text>
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
 
         </View>
       </View>
