@@ -284,7 +284,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         for view in containerView.subviews {
             view.removeFromSuperview()
         }
-        scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 40), animated: true)
+        scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 40), animated: false)
         self.layoutButtons(categories, keyboardLevel: 0)
     }
 }
