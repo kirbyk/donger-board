@@ -22,6 +22,7 @@
 		9CAFD7301CE9412F00F39869 /* dongers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CAFD72F1CE9412F00F39869 /* dongers.json */; };
 		9CC54DEC1CED5B2A00F18F70 /* ControlKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */; };
 		9CC54DEE1CEF59F700F18F70 /* DeleteStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC54DED1CEF59F700F18F70 /* DeleteStack.swift */; };
+		9CCA89201CFAB38300975B5F /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA891F1CFAB38300975B5F /* main.jsbundle */; };
 		9CF84B2E1CF6AB02005A92A7 /* KeyboardManagerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF84B2D1CF6AB02005A92A7 /* KeyboardManagerBridge.m */; };
 		9CF84B301CF6AB43005A92A7 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF84B2F1CF6AB43005A92A7 /* KeyboardManager.swift */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		9CAFD72F1CE9412F00F39869 /* dongers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dongers.json; path = data/dongers.json; sourceTree = SOURCE_ROOT; };
 		9CC54DEB1CED5B2A00F18F70 /* ControlKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlKey.swift; sourceTree = "<group>"; };
 		9CC54DED1CEF59F700F18F70 /* DeleteStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteStack.swift; sourceTree = "<group>"; };
+		9CCA891F1CFAB38300975B5F /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = Resources/main.jsbundle; sourceTree = "<group>"; };
 		9CF84B261CF687E9005A92A7 /* DongerBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DongerBoard.entitlements; sourceTree = "<group>"; };
 		9CF84B271CF69059005A92A7 /* Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Keyboard.entitlements; sourceTree = "<group>"; };
 		9CF84B2C1CF6AB01005A92A7 /* DongerBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DongerBoard-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		4EDA050D1CE28AAC00BCE88E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9CCA891F1CFAB38300975B5F /* main.jsbundle */,
 				4EDA050A1CE283AD00BCE88E /* delete.png */,
 				4EDA050E1CE28ABE00BCE88E /* fontawesome-webfont.ttf */,
 			);
@@ -381,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CCA89201CFAB38300975B5F /* main.jsbundle in Resources */,
 				4EF3F5391CDBEB70006C6E2B /* LaunchScreen.storyboard in Resources */,
 				4EF3F5361CDBEB70006C6E2B /* Assets.xcassets in Resources */,
 			);
@@ -676,6 +680,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-DRELEASE_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kirbykohlmorgen.DongerBoard;
 				PRODUCT_NAME = DongerBoard;
 				PROVISIONING_PROFILE = "";

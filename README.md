@@ -28,3 +28,11 @@ npm start
 ```
 
 Open `DongerBoard.xcworkspace` and click the play button.
+
+### Releasing App onto Phone
+Run the following react-native command to transform the latest JS changes into a bundle. You may need to 'Add this file' to Xcode under the file manager if it does not already exist under the resources tab. Note that I am not including the jsbundle file in version control for now.
+```
+react-native bundle --entry-file ./index.ios.js --platform ios --bundle-output Resources/main.jsbundle
+```  
+Now "Edit Scheme" in Xcode to build and run a release version of the app and the bundle will be included on the phone.
+

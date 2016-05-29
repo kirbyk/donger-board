@@ -16,8 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let rootView: RCTRootView = RCTRootView(bundleURL: NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios"),
-                                                moduleName: "DongerBoardApp", initialProperties: nil, launchOptions: nil)
+        
+        // Make sure 'react packager' is running with 'react-native start' on command line
+        #if RELEASE_VERSION
+            let bundleURL = NSBundle.mainBundle().URLForResource("main", withExtension: "jsbundle")
+        #else
+            let bundleURL = NSURL(string: "http://localhost:8081/index.ios.bundle?platform=ios")
+        #endif
+        
+        let rootView: RCTRootView = RCTRootView(bundleURL: bundleURL, moduleName: "DongerBoardApp", initialProperties: nil, launchOptions: nil)
         
         let rootViewController = UIViewController()
         rootViewController.view = rootView

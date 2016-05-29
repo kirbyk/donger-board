@@ -68,3 +68,6 @@ node_modules
 
 Pods
 Podfile.lock
+
+# Bundle file
+*.jsbundle
