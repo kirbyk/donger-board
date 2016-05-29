@@ -98,7 +98,6 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         switchButton.delegate = self
         nextKeyboardButton.delegate = self
         deleteButton.delegate = self
-        //dongerButton.delegate = self
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
@@ -169,21 +168,11 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacingY * (1 + 1 / CGFloat(numRows))
         var buttonWidth = CGFloat(0)
         
-        
-        /*
-        var incompleteColumn = false
-        if labels.count % numRows != 0 {
-            incompleteColumn = true
-        }
-        */
-        
-        //scrollView.contentSize.width = buttonSpacing + (incompleteColumn ? (CGFloat(labels.count / numRows)+1) * (buttonWidth + buttonSpacing) : CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing))
-        //scrollView.contentSize.height = buttonSpacing + CGFloat(numRows) * (buttonHeight + buttonSpacing)
-        
         // Layout buttons in columns of 4
         var finalScrollViewWidth = buttonSpacingX
         var xVal = CGFloat(0)
         for (i, category) in labels.enumerate() {
+            let yVal = (CGFloat)(buttonHeight + buttonSpacingY) * CGFloat(i % numRows) + buttonSpacingY
             
             //For each column set buttonWidth to the width of the largest label
             if (i % numRows) == 0 {
@@ -209,8 +198,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
  
             
             let button = UIButton(type: .System)
-            //let xVal = (CGFloat)(buttonWidth + buttonSpacingX) * CGFloat(i / numRows) + buttonSpacingX //This line breaks x axis spacing
-            let yVal = (CGFloat)(buttonHeight + buttonSpacingY) * CGFloat(i % numRows) + buttonSpacingY
+            
             
             button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
             button.backgroundColor = UIColor(red:0.37, green:0.76, blue:0.89, alpha:1.00)
@@ -225,7 +213,6 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         }
         finalScrollViewWidth += buttonSpacingX
         scrollView.contentSize.width = finalScrollViewWidth
-        //scrollView.contentSize.width = buttonSpacing + (incompleteColumn ? (CGFloat(labels.count / numRows)+1) * (buttonWidth + buttonSpacing) : CGFloat(labels.count / numRows) * (buttonWidth + buttonSpacing))
         scrollView.contentSize.height = buttonSpacingY + CGFloat(numRows) * (buttonHeight + buttonSpacingY)
         
         // Add container with all buttons to the scroll view
