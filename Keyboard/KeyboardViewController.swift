@@ -164,7 +164,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         let buttonSpacingY = CGFloat(5)
         let buttonPadding = CGFloat(20)
         
-        let minButtonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacingX * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.65)
+        let minButtonWidth = ( scrollView.bounds.width / CGFloat(numColumns) - buttonSpacingX * (1 + 1 / CGFloat(numColumns)) ) * CGFloat(0.95)
         let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacingY * (1 + 1 / CGFloat(numRows))
         var buttonWidth = CGFloat(0)
         
