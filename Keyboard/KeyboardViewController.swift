@@ -148,14 +148,9 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         nextKeyboardButton.addButton("HelveticaNeue", spacing: CGFloat(20), view: self.view, leftAnchorAlign: self.view.leftAnchor)
         recentButton.addButton(view: self.view, leftAnchorAlign: self.nextKeyboardButton.button.rightAnchor)
         favoriteButton.addButton(view: self.view, leftAnchorAlign: self.recentButton.button.rightAnchor)
-        //heartButton.addButton(view: self.view, leftAnchorAlign: self.favoriteButton.button.rightAnchor)
-        //allButton.addButton(view: self.view, leftAnchorAlign: self.heartButton.button.rightAnchor)
-        //trendingButton.addButton(view: self.view, leftAnchorAlign: self.allButton.button.rightAnchor)
-        searchButton.addButton(view: self.view, leftAnchorAlign: self.favoriteButton.button.rightAnchor)//trendingButton.button.rightAnchor)
+        searchButton.addButton(view: self.view, leftAnchorAlign: self.favoriteButton.button.rightAnchor)
         switchButton.addButton(view: self.view, leftAnchorAlign: self.searchButton.button.rightAnchor)
         deleteButton.addButton(view: self.view, leftAnchorAlign: self.switchButton.button.rightAnchor)
-        
-        //self.addDeleteButton()
     }
     
     //Given a string, return a float of its width
@@ -180,7 +175,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         let buttonHeight = scrollView.bounds.height / CGFloat(numRows) - buttonSpacingY * (1 + 1 / CGFloat(numRows))
         var buttonWidth = CGFloat(0)
         
-        // Layout buttons in columns of 4
+        // Layout buttons in columns of 4, dynamically based on Donger size
         var finalScrollViewWidth = buttonSpacingX
         var xVal = CGFloat(0)
         for (i, category) in labels.enumerate() {
@@ -208,9 +203,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
                 
             }
  
-            
             let button = UIButton(type: .System)
-            
             
             button.frame = CGRectMake(xVal, yVal, buttonWidth, buttonHeight)
             button.backgroundColor = keyColor
@@ -229,17 +222,6 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         
         // Add container with all buttons to the scroll view
         scrollView.addSubview(containerView)
-    }
-    
-    // TODO: remove hardcoded positioning
-    func addDeleteButton() {
-        let deleteButtonImg = UIImage(named: "delete.png")
-        let deleteButton = UIButton(type: UIButtonType.Custom)
-        deleteButton.setImage(deleteButtonImg, forState: .Normal)
-        deleteButton.frame = CGRect(x: self.scrollView.bounds.width - 30 - 20, y: self.scrollView.bounds.height + 8, width: 27, height: 18)
-        deleteButton.addTarget(self, action: #selector(self.didTapDelete), forControlEvents: UIControlEvents.TouchUpInside)
-
-        self.view.addSubview(deleteButton)
     }
     
     func didTapDongerButton(sender:UIButton) {
