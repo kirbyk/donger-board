@@ -11,7 +11,7 @@ import UIKit
 class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
 
     var nextKeyboardButton = NextKeyboardButton(title: "ABC")
-    var recentButton = ControlKey(title: "\u{f017}")
+    var recentButton = RecentButton(title: "\u{f017}")
     var favoriteButton = ControlKey(title: "\u{f006}")
     var heartButton = ControlKey(title: "\u{f004}")
     var allButton = ControlKey(title: "\u{f118}")
@@ -19,6 +19,9 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
     var searchButton = ControlKey(title: "\u{f002}")
     var switchButton = SwitchBackCategories(title: "\u{f24d}")
     var deleteButton = DeleteButton(title: "\u{f100}")
+    
+    var recentDongers = [String]()
+    let maxRecentDongers = 20
     
     var scrollView: UIScrollView!
     var containerView = UIView()
@@ -99,6 +102,7 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         switchButton.delegate = self
         nextKeyboardButton.delegate = self
         deleteButton.delegate = self
+        recentButton.delegate = self
   
         self.scrollView = UIScrollView()
         view.addSubview(scrollView)
@@ -178,6 +182,11 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         // Layout buttons in columns of 4, dynamically based on Donger size
         var finalScrollViewWidth = buttonSpacingX
         var xVal = CGFloat(0)
+        
+        for view in containerView.subviews {
+            view.removeFromSuperview()
+        }
+        
         for (i, category) in labels.enumerate() {
             let yVal = (CGFloat)(buttonHeight + buttonSpacingY) * CGFloat(i % numRows) + buttonSpacingY
             
@@ -231,17 +240,38 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
         // enter the donger that was tapped into the text field
         if (sender.tag == 0) {
             let keyLabels = donger.getDongers(text)
-            for view in containerView.subviews {
-                view.removeFromSuperview()
-            }
             scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 40), animated: false)
             self.layoutButtons(keyLabels, keyboardLevel: 1)
         } else if (sender.tag == 1) {
             let proxy = self.textDocumentProxy
             proxy.insertText(text)
             dongerLengthStack.push(text.characters.count)
+            addToRecentDongers(text)
         }
         
+    }
+    
+    func addToRecentDongers(text:String){
+        var isInRecents = false
+        var indexInRecents = 0
+        
+        //Search through all recent dongers to see if the tapped donger is already there
+        for (i,each) in recentDongers.enumerate(){
+            if each == text{
+                isInRecents = true
+                indexInRecents = i
+                break
+            }
+        }
+        
+        if isInRecents{
+            recentDongers.removeAtIndex(indexInRecents)
+        }else{
+            if recentDongers.count == maxRecentDongers{
+                recentDongers.removeAtIndex(maxRecentDongers-1)
+            }
+        }
+        recentDongers.insert(text, atIndex: 0)
     }
     
     // Delete the entire length of the donger
@@ -263,10 +293,14 @@ class KeyboardViewController: UIInputViewController, ControlKeyDelegate {
     
     // Switch back to categories layout
     func switchKeyboardTapped() {
-        for view in containerView.subviews {
-            view.removeFromSuperview()
-        }
         scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 40), animated: false)
         self.layoutButtons(categories, keyboardLevel: 0)
+    }
+    
+    //Show recently used dongers
+    func didTapRecentDongers() {
+        print("The button calls the method.")
+        scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height - 40), animated: false)
+        self.layoutButtons(recentDongers, keyboardLevel: 1)
     }
 }

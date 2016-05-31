@@ -13,6 +13,7 @@ protocol ControlKeyDelegate: class {
     
     func switchKeyboardTapped()
     func advanceNextKeyboard()
+    func didTapRecentDongers()
     func didTapDelete()
 }
 
@@ -67,5 +68,13 @@ class DeleteButton: ControlKey {
     
     override func onButtonTap() {
         delegate?.didTapDelete()
+    }
+}
+
+class RecentButton: ControlKey {
+    weak var delegate: ControlKeyDelegate?
+    
+    override func onButtonTap() {
+        delegate?.didTapRecentDongers()
     }
 }
