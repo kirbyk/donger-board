@@ -36,6 +36,7 @@ Content-Type: application/json
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
+Request-Id: EB5iGydiUL0h4bRu1ZyRIi
 
 {
   "status": "success",
@@ -59,6 +60,7 @@ Content-Type: application/json
 ```
 HTTP/1.1 500 Internal Server Error
 Content-Type: application/json
+Request-Id: HV2ZKGVJJklN0eH35IgNaB
 
 {
   "status": "error",
@@ -96,6 +98,7 @@ Content-Type: application/json
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
+Request-Id: XvAT8cSxvkskGSZLQU1l9d
 
 {
   "status": "success",
@@ -109,6 +112,7 @@ Content-Type: application/json
 ```
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
+Request-Id: unx1VLuvvbCWzPMjBtnMTD
 
 {
   "status": "error",
