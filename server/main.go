@@ -1,59 +1,38 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"github.com/gorilla/mux"
+	"github.com/julienschmidt/httprouter"
+	"gopkg.in/mgo.v2"
 	"log"
 	"net/http"
 )
 
-type Book struct {
-	Title  string `json:"title"`
-	Author string `json:"author"`
-}
+// TODO: Add this as middleware
+// log.Println("serving", req.URL)
+// log.Println(req.UserAgent())
 
 func main() {
-	r := mux.NewRouter()
+	router := httprouter.New()
 
-	r.HandleFunc("/", HomeHandler)
-	r.HandleFunc("/products", ProductsHandler)
-	r.HandleFunc("/products/{key}", ProductHandler)
+	trendingDongerCtrl := NewTrendingDongerController(getSession())
 
-	http.Handle("/", r)
+	router.Handle("GET", "/trending", trendingDongerCtrl.GetTrendingDongers)
+	// router.Handle("POST", "/trending/poll", TrendingPollHandler)
 
 	log.Println("the server is listening on port 7777")
-	log.Fatal(http.ListenAndServe("localhost:7777", nil))
+	log.Fatal(http.ListenAndServe(":7777", router))
 }
 
-func HomeHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("serving", req.URL)
-	fmt.Fprintln(w, "Welcome to /")
-}
+// getSession creates a new mongo session and panics if connection error occurs
+func getSession() *mgo.Session {
+	// Connect to our local mongo
+	s, err := mgo.Dial("mongodb://localhost")
 
-func ProductsHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("serving", req.URL)
-	fmt.Fprintln(w, "Welcome to /products")
-}
-
-func ProductHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("serving", req.URL)
-	log.Println(req.UserAgent())
-
-	// vars := mux.Vars(req)
-	// name := vars["key"]
-
-	// w.WriteHeader(http.StatusOK)
-	// fmt.Fprintln(w, "Welcome to /products/", name)
-
-	book := Book{"Building Web Apps with Go", "Jeremy Saenz"}
-
-	js, err := json.Marshal(book)
+	// Check if connection error, is mongo running?
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+		panic(err)
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
+	// Deliver session
+	return s
 }

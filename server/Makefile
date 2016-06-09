@@ -4,10 +4,10 @@ install:
 	go get "github.com/gorilla/mux"
 
 build:
-	go install main.go
+	go build
 
 run:
-	./bin/main
+	./server
 
 clean:
-	rm -f bin/main
+	rm -f ./server
