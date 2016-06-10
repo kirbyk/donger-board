@@ -60,7 +60,7 @@ func (ctrl TrendingDongerController) GetTrendingDongers(w http.ResponseWriter, r
 	}
 
 	// Write content-type, statuscode, payload
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(200)
 	w.Write(j)
 }
