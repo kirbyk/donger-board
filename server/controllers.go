@@ -7,6 +7,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+	"strconv"
 )
 
 type (
@@ -32,8 +33,15 @@ func (ctrl TrendingDongerController) GetTrendingDongers(w http.ResponseWriter, r
 	// Stub trending dongers
 	trendingDongers := []TrendingDonger{}
 
-	// Fetch user
-	if err := ctrl.session.DB("dongerBoard").C("trending").Find(bson.M{}).All(&trendingDongers); err != nil {
+	// default limit of 50, otherwise use "limit" GET param
+	limit, limitErr := strconv.Atoi(r.FormValue("limit"))
+	if limitErr != nil {
+		limit = 50
+	}
+
+	// Fetch dongers
+	dbErr := ctrl.session.DB("dongerBoard").C("trending").Find(bson.M{}).Sort("-visits").Limit(limit).All(&trendingDongers)
+	if dbErr != nil {
 		w.WriteHeader(404)
 		return
 	}

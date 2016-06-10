@@ -19,13 +19,19 @@ make
 ```
 
 ## Endpoints
----------
+
 #### /v1/trending
+
+##### Params
+
+| Param | Default  | Required  |
+| ----- |:--------:|:---------:|
+| limit | 50       | false     |
 
 **Example Request:**
 
 ```
-GET /v1/trending HTTP/1.1
+GET /v1/trending?limit=20 HTTP/1.1
 Content-Type: application/json
 ```
 
@@ -43,14 +49,14 @@ Request-Id: EB5iGydiUL0h4bRu1ZyRIi
   "message": "Successfully fetched trending dongers.",
   "data": [
     {
-      "dongerId": "938",
+      "dongerid": "575a1fddf8651de92150aa5b",
       "text": "⊂(▀¯▀⊂)",
-      "index": 1
+      "visits": 25
     },
     {
-      "dongerId": "837",
+      "dongerid": "575a1fcbf8651de92150aa5a",
       "text": ᕙ(˵ ಠ ਊ ಠ ˵)ᕗ",
-      "index": 2
+      "visits": 6
     },
     ...
   ]
@@ -87,9 +93,9 @@ POST /v1/trending/poll HTTP/1.1
 Content-Type: application/json
 
 {
-  "userId": "1234567890ABCDEF",
-  "messageId": "507f1f77bcf86cd799439011",
-  "dongerId" "938"
+  "userid": "1234567890ABCDEF",
+  "messageid": "507f1f77bcf86cd799439011",
+  "dongerid" "575a1fddf8651de92150aa5b"
 }
 ```
 
