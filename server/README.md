@@ -44,10 +44,12 @@ Request-Id: EB5iGydiUL0h4bRu1ZyRIi
   "data": [
     {
       "dongerId": "938",
+      "text": "⊂(▀¯▀⊂)",
       "index": 1
     },
     {
       "dongerId": "837",
+      "text": ᕙ(˵ ಠ ਊ ಠ ˵)ᕗ",
       "index": 2
     },
     ...
