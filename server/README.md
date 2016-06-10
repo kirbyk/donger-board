@@ -41,7 +41,7 @@ Content-Type: application/json
 
 ```
 HTTP/1.1 200 OK
-Content-Type: application/json
+Content-Type: application/json; charset=utf-8
 Request-Id: EB5iGydiUL0h4bRu1ZyRIi
 
 {
@@ -67,7 +67,7 @@ Request-Id: EB5iGydiUL0h4bRu1ZyRIi
 
 ```
 HTTP/1.1 500 Internal Server Error
-Content-Type: application/json
+Content-Type: application/json; charset=utf-8
 Request-Id: HV2ZKGVJJklN0eH35IgNaB
 
 {
@@ -105,7 +105,7 @@ Content-Type: application/json
 
 ```
 HTTP/1.1 200 OK
-Content-Type: application/json
+Content-Type: application/json; charset=utf-8
 Request-Id: XvAT8cSxvkskGSZLQU1l9d
 
 {
@@ -119,7 +119,7 @@ Request-Id: XvAT8cSxvkskGSZLQU1l9d
 
 ```
 HTTP/1.1 400 Bad Request
-Content-Type: application/json
+Content-Type: application/json; charset=utf-8
 Request-Id: unx1VLuvvbCWzPMjBtnMTD
 
 {
